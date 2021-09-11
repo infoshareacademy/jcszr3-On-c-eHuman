@@ -14,12 +14,14 @@ namespace TimeTrackingSystem.Application.ViewModels.Employee
         public string Last_Name { get; set; }
         public string Email { get; set; }
         public string Status { get; set; }
-        public string Role { get; set; }
+        public string Password { get; set; }
+        public int RoleId { get; set; }
+        public bool IsEnable { get; set; }
 
         public void Mapping(Profile profile)
         {
             //<source, destination>
-            profile.CreateMap<Account, NewEmployeeViewModel>();
+            profile.CreateMap<NewEmployeeViewModel, Account>();
         }
     }
 }
