@@ -1583,6 +1583,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "TimeTrackingSystem.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/TimeTrackingSystem.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TimeTrackingSystem.Domain.dll": {}
+        }
       }
     }
   },
@@ -5941,6 +5951,11 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "TimeTrackingSystem.Domain/1.0.0": {
+      "type": "project",
+      "path": "../TimeTrackingSystem.Domain/TimeTrackingSystem.Domain.csproj",
+      "msbuildProject": "../TimeTrackingSystem.Domain/TimeTrackingSystem.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5948,7 +5963,8 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 5.0.9",
       "Microsoft.EntityFrameworkCore >= 5.0.9",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.9",
-      "Microsoft.EntityFrameworkCore.Tools >= 5.0.9"
+      "Microsoft.EntityFrameworkCore.Tools >= 5.0.9",
+      "TimeTrackingSystem.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5987,7 +6003,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj": {
+              "projectPath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

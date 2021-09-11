@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "QwPGkH4DrYrILjQ/3gVW4OEfJanaFG4Xbo0HAkxNE9o5F+Q4lkTjXrFqLerIjRHT1/YlNXwykB6SqfdOxvwNXg==",
+  "dgSpecHash": "6ngbUVjio2DBGi8HySAlkTlMSkQGPwqRp6BEL2zfVOxkypLuEZKk2DeAx2CWsPSnnZhR7W9woytD+orR1G5AFg==",
   "success": true,
   "projectFilePath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Application\\TimeTrackingSystem.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\9dani\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\9dani\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\9dani\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\9dani\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.9\\microsoft.entityframeworkcore.5.0.9.nupkg.sha512",
@@ -22,7 +23,8 @@
     "C:\\Users\\9dani\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\9dani\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\9dani\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
-    "C:\\Users\\9dani\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512"
+    "C:\\Users\\9dani\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
+    "C:\\Users\\9dani\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

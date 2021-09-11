@@ -18,4 +18,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TimeTrackingSystem.Domain\TimeTrackingSystem.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

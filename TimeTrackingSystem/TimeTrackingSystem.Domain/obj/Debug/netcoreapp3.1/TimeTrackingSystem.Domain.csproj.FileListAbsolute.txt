@@ -1,0 +1,9 @@
+D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem.Domain\bin\Debug\netcoreapp3.1\TimeTrackingSystem.Domain.deps.json
+D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem.Domain\bin\Debug\netcoreapp3.1\TimeTrackingSystem.Domain.dll
+D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem.Domain\bin\Debug\netcoreapp3.1\TimeTrackingSystem.Domain.pdb
+D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem.Domain\obj\Debug\netcoreapp3.1\TimeTrackingSystem.Domain.AssemblyInfoInputs.cache
+D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem.Domain\obj\Debug\netcoreapp3.1\TimeTrackingSystem.Domain.AssemblyInfo.cs
+D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem.Domain\obj\Debug\netcoreapp3.1\TimeTrackingSystem.Domain.csproj.CoreCompileInputs.cache
+D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem.Domain\obj\Debug\netcoreapp3.1\TimeTrackingSystem.Domain.dll
+D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem.Domain\obj\Debug\netcoreapp3.1\TimeTrackingSystem.Domain.pdb
+D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem.Domain\obj\Debug\netcoreapp3.1\TimeTrackingSystem.Domain.csprojAssemblyReference.cache

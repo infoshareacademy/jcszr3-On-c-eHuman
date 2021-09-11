@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTrackingSystem", "TimeTrackingSystem\TimeTrackingSystem.csproj", "{9836BC94-053B-4780-AAE5-C1C7EA1038FA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FDB18F93-68A6-4155-87E7-06EC25DFF6EB} = {FDB18F93-68A6-4155-87E7-06EC25DFF6EB}
+		{34E777F4-E0B3-4928-B3CD-BD5EAA6FB325} = {34E777F4-E0B3-4928-B3CD-BD5EAA6FB325}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTrackingSystem.Application", "TimeTrackingSystem.Application\TimeTrackingSystem.Application.csproj", "{FDB18F93-68A6-4155-87E7-06EC25DFF6EB}"
 	ProjectSection(ProjectDependencies) = postProject
