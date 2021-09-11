@@ -16,7 +16,5 @@ namespace TimeTrackingSystem.Domain.Model
         public int ActivityId { get; set; }
         public virtual Activity Activity { get; set; }
         public DateTime Date_submitted { get; set; }
-
-        
     }
 }

@@ -1,0 +1,53 @@
+﻿@model TimeTrackingSystem.Application.ViewModels.TimeSheet.ListOfTimeSheetsViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="AddTimeSheet">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Time from
+            </th>
+            <th>
+                Time to
+            </th>
+            <th>
+                Comments
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TimeSheets) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time_from)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time_to)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "ViewTimeSheet", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

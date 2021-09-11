@@ -1,0 +1,64 @@
+﻿@model TimeTrackingSystem.Application.ViewModels.TimeSheet.NewTimeSheetViewModel
+
+@{
+    ViewData["Title"] = "AddTimeSheet";
+}
+
+<h1>AddTimeSheet</h1>
+
+<h4>NewTimeSheetViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddTimeSheet">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" class="form-control" />
+            <div class="form-group">
+                <label asp-for="AccountId" class="control-label"></label>
+                <input asp-for="AccountId" class="form-control" />
+                <span asp-validation-for="AccountId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Time_from" class="control-label"></label>
+                <input asp-for="Time_from" class="form-control" />
+                <span asp-validation-for="Time_from" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Time_to" class="control-label"></label>
+                <input asp-for="Time_to" class="form-control" />
+                <span asp-validation-for="Time_to" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Comments" class="control-label"></label>
+                <input asp-for="Comments" class="form-control" />
+                <span asp-validation-for="Comments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActivityId" class="control-label"></label>
+                <input asp-for="ActivityId" class="form-control" />
+                <span asp-validation-for="ActivityId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date_submitted" class="control-label"></label>
+                <input asp-for="Date_submitted" class="form-control" />
+                <span asp-validation-for="Date_submitted" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
