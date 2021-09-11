@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackingSystem", "TimeTrackingSystem\TimeTrackingSystem.csproj", "{9836BC94-053B-4780-AAE5-C1C7EA1038FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTrackingSystem", "TimeTrackingSystem\TimeTrackingSystem.csproj", "{9836BC94-053B-4780-AAE5-C1C7EA1038FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackingSystem.Application", "TimeTrackingSystem.Application\TimeTrackingSystem.Application.csproj", "{FDB18F93-68A6-4155-87E7-06EC25DFF6EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTrackingSystem.Application", "TimeTrackingSystem.Application\TimeTrackingSystem.Application.csproj", "{FDB18F93-68A6-4155-87E7-06EC25DFF6EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackingSystem.Domain", "TimeTrackingSystem.Domain\TimeTrackingSystem.Domain.csproj", "{2CD83924-8480-4732-BF44-2BE8DE1ABAA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTrackingSystem.Domain", "TimeTrackingSystem.Domain\TimeTrackingSystem.Domain.csproj", "{2CD83924-8480-4732-BF44-2BE8DE1ABAA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackingSystem.Infrastructure", "TimeTrackingSystem.Infrastructure\TimeTrackingSystem.Infrastructure.csproj", "{34E777F4-E0B3-4928-B3CD-BD5EAA6FB325}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTrackingSystem.Infrastructure", "TimeTrackingSystem.Infrastructure\TimeTrackingSystem.Infrastructure.csproj", "{34E777F4-E0B3-4928-B3CD-BD5EAA6FB325}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackingSystem.Tests", "TimeTrackingSystem.Tests\TimeTrackingSystem.Tests.csproj", "{B3651159-3332-4A00-A290-3DC4243C4DCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTrackingSystem.Tests", "TimeTrackingSystem.Tests\TimeTrackingSystem.Tests.csproj", "{B3651159-3332-4A00-A290-3DC4243C4DCD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{60095E0D-9505-4FD1-A814-D9C5EC0595E4}"
 EndProject
