@@ -56,7 +56,6 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
             _context.Entry(timesheet).Property("Time_from").IsModified = true;
             _context.Entry(timesheet).Property("Time_to").IsModified = true;
             _context.Entry(timesheet).Property("Comments").IsModified = true;
-            _context.Entry(timesheet).Property("ActivityId").IsModified = true;
             _context.SaveChanges();
         }
     }

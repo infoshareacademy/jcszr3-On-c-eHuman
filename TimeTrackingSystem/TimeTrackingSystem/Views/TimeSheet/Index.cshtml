@@ -34,13 +34,13 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Date)
+                            @Html.DisplayFor(modelItem => item.Date.GetDateTimeFormats()[0])
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Time_from)
+                            @Html.DisplayFor(modelItem => item.Time_from.Date.TimeOfDay)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Time_to)
+                            @Html.DisplayFor(modelItem => item.Time_to.Date.TimeOfDay)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Comments)

@@ -46,7 +46,7 @@ namespace TimeTrackingSystem.Controllers
             public IActionResult AddTimeSheet(NewTimeSheetViewModel model)
             {
                 var id = _timeSheetService.AddTimeSheet(model);
-                return RedirectToAction("ViewTimeSheet", new { tsId = id });
+                return RedirectToAction("ViewTimeSheet", new { id = id });
             }
 
             [HttpGet]
@@ -59,7 +59,7 @@ namespace TimeTrackingSystem.Controllers
             public IActionResult EditTimeSheet(NewTimeSheetViewModel model)
             {
                 _timeSheetService.UpdateTimeSheet(model);
-                return RedirectToAction("ViewTimeSheet", new { id = model.Id, accountId = model.Id });
+                return RedirectToAction("ViewTimeSheet", new { id = model.Id });
                 //View(model);
                 //RedirectToAction("ViewEmployee", new { accountId = id });
             }
