@@ -10,8 +10,8 @@ using TimeTrackingSystem.Infrastructure;
 namespace TimeTrackingSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210911155131_Initial timeSheet")]
-    partial class InitialtimeSheet
+    [Migration("20210912104540_timeinitial")]
+    partial class timeinitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -340,6 +340,11 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
 
             modelBuilder.Entity("TimeTrackingSystem.Domain.Model.TimeSheet", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
 
@@ -355,16 +360,15 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                     b.Property<DateTime>("Date_submitted")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Time_from")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("Time_to")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("AccountId", "ActivityId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
 
                     b.HasIndex("ActivityId");
 

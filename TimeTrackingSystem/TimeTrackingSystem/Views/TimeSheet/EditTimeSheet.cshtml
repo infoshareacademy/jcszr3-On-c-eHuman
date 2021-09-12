@@ -1,28 +1,18 @@
 ﻿@model TimeTrackingSystem.Application.ViewModels.TimeSheet.NewTimeSheetViewModel
 
 @{
-    ViewData["Title"] = "AddTimeSheet";
+    ViewData["Title"] = "EditTimeSheet";
 }
 
-<h1>AddTimeSheet</h1>
+<h1>EditTimeSheet</h1>
 
 <h4>NewTimeSheetViewModel</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="AddTimeSheet">
+        <form asp-action="EditTimeSheet">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" class="form-control" />
-            <div class="form-group">
-                <label asp-for="AccountId" class="control-label"></label>
-                <input asp-for="AccountId" class="form-control" />
-                <span asp-validation-for="AccountId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ActivityId" class="control-label"></label>
-                <input asp-for="ActivityId" class="form-control" />
-                <span asp-validation-for="ActivityId" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="Date" class="control-label"></label>
                 <input asp-for="Date" class="form-control" />
@@ -49,7 +39,7 @@
                 <span asp-validation-for="Date_submitted" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>

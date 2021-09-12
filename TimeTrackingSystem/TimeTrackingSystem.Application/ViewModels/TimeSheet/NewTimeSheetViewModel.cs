@@ -23,14 +23,13 @@ namespace TimeTrackingSystem.Application.ViewModels.TimeSheet
         public void Mapping(Profile profile)
         {
             //<source, destination>
-            profile.CreateMap<NewTimeSheetViewModel, Domain.Model.TimeSheet>();
+            profile.CreateMap<NewTimeSheetViewModel, Domain.Model.TimeSheet>().ReverseMap();
         }
     }
     public class NewTimeSheetValidation : AbstractValidator<NewTimeSheetViewModel>
     {
         public NewTimeSheetValidation()
         {
-            RuleFor(x => x.Id).NotNull();
             RuleFor(x => x.Comments).Length(3, 50);
         }
     }

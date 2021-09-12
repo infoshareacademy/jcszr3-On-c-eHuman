@@ -29,6 +29,17 @@ namespace TimeTrackingSystem.Application.Services
             return id;
 
         }
+        public NewTimeSheetViewModel TimeSheetForEdit(int id)
+        {
+            var timesheet = _timeSheetRepo.GetTimeSheetDetails(id);
+            var timesheetVM = _mapper.Map<NewTimeSheetViewModel>(timesheet);
+            return timesheetVM;
+        }
+        public void UpdateTimeSheet(NewTimeSheetViewModel model)
+        {
+            var timesheet = _mapper.Map<TimeSheet>(model);
+            _timeSheetRepo.UpdateTimeSheet(timesheet);
+        }
 
         public ListOfTimeSheetsViewModel GetAllTimeSheets(int pageSize, int pageNo)
         {

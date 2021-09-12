@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TimeTrackingSystem.Infrastructure.Migrations
 {
-    public partial class Initial : Migration
+    public partial class timeinitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -243,18 +243,19 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                 name: "TimeSheets",
                 columns: table => new
                 {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     AccountId = table.Column<int>(type: "int", nullable: false),
-                    ActivityId = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Time_from = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Time_to = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Comments = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ActivityId = table.Column<int>(type: "int", nullable: false),
                     Date_submitted = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TimeSheets", x => new { x.AccountId, x.ActivityId });
+                    table.PrimaryKey("PK_TimeSheets", x => x.Id);
                     table.ForeignKey(
                         name: "FK_TimeSheets_Accounts_AccountId",
                         column: x => x.AccountId,
@@ -321,6 +322,11 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Projects_AccountId",
                 table: "Projects",
+                column: "AccountId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TimeSheets_AccountId",
+                table: "TimeSheets",
                 column: "AccountId");
 
             migrationBuilder.CreateIndex(

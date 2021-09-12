@@ -10,6 +10,9 @@ namespace TimeTrackingSystem.Application.Interfaces
         ListOfTimeSheetsViewModel GetAllTimeSheets(int pageSize, int pageNo);
         int AddTimeSheet(NewTimeSheetViewModel model);
         int RemoveTimeSheet(TimeSheetDetailsViewModel model);
-        TimeSheetDetailsViewModel GetTimeSheetDetails(int accountId);
+        TimeSheetDetailsViewModel GetTimeSheetDetails(int id);
+        NewTimeSheetViewModel TimeSheetForEdit(int id);
+        void UpdateTimeSheet(NewTimeSheetViewModel model);
+        
     }
 }

@@ -338,6 +338,11 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
 
             modelBuilder.Entity("TimeTrackingSystem.Domain.Model.TimeSheet", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
 
@@ -353,16 +358,15 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                     b.Property<DateTime>("Date_submitted")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Time_from")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("Time_to")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("AccountId", "ActivityId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
 
                     b.HasIndex("ActivityId");
 

@@ -94,4 +94,3 @@ D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem.Tests\obj\Debug
 D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem.Tests\obj\Debug\netcoreapp3.1\TimeTrackingSystem.Tests.dll
 D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem.Tests\obj\Debug\netcoreapp3.1\TimeTrackingSystem.Tests.pdb
 D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem.Tests\obj\Debug\netcoreapp3.1\TimeTrackingSystem.Tests.genruntimeconfig.cache
-D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem.Tests\obj\Debug\netcoreapp3.1\TimeTrackingSystem.Tests.csprojAssemblyReference.cache

@@ -46,7 +46,18 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
         public TimeSheet GetTimeSheetDetails(int timesheetId)
         {
             var timesheet = _context.TimeSheets.FirstOrDefault(i => i.Id == timesheetId);
+            
             return timesheet;
+        }
+
+        public void UpdateTimeSheet(TimeSheet timesheet)
+        {
+            _context.Attach(timesheet);
+            _context.Entry(timesheet).Property("Time_from").IsModified = true;
+            _context.Entry(timesheet).Property("Time_to").IsModified = true;
+            _context.Entry(timesheet).Property("Comments").IsModified = true;
+            _context.Entry(timesheet).Property("ActivityId").IsModified = true;
+            _context.SaveChanges();
         }
     }
 }

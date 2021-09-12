@@ -13,5 +13,6 @@ namespace TimeTrackingSystem.Domain.Interfaces
         IQueryable<TimeSheet> GetTimeSheetsByEmployeeId(int accountId);
         IQueryable<TimeSheet> GetAllTimeSheets();
         TimeSheet GetTimeSheetDetails(int TimeSheetId);
+        void UpdateTimeSheet(TimeSheet timesheet);
     }
 }

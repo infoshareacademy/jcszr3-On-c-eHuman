@@ -49,8 +49,22 @@ namespace TimeTrackingSystem.Controllers
                 return RedirectToAction("ViewTimeSheet", new { tsId = id });
             }
 
-
             [HttpGet]
+            public IActionResult EditTimeSheet(int id)
+        {
+                var employee = _timeSheetService.TimeSheetForEdit(id);
+                return View(employee);
+            }
+            [HttpPost]
+            public IActionResult EditTimeSheet(NewTimeSheetViewModel model)
+            {
+                _timeSheetService.UpdateTimeSheet(model);
+                return RedirectToAction("ViewTimeSheet", new { id = model.Id, accountId = model.Id });
+                //View(model);
+                //RedirectToAction("ViewEmployee", new { accountId = id });
+            }
+
+        [HttpGet]
             public IActionResult RemoveTimeSheet()
             {
                 return View();
@@ -63,9 +77,9 @@ namespace TimeTrackingSystem.Controllers
             //    return View();
             //}
 
-            public IActionResult ViewTimeSheet(int tsId)
+            public IActionResult ViewTimeSheet(int id)
             {
-                var timesheetModel = _timeSheetService.GetTimeSheetDetails(tsId);
+                var timesheetModel = _timeSheetService.GetTimeSheetDetails(id);
                 return View(timesheetModel);
             }
         }
