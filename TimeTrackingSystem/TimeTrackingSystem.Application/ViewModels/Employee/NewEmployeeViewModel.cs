@@ -22,7 +22,7 @@ namespace TimeTrackingSystem.Application.ViewModels.Employee
         public void Mapping(Profile profile)
         {
             //<source, destination>
-            profile.CreateMap<NewEmployeeViewModel, Account>();
+            profile.CreateMap<NewEmployeeViewModel, Account>().ReverseMap();
         }
     }
     public class NewEmployeeValidation : AbstractValidator<NewEmployeeViewModel>

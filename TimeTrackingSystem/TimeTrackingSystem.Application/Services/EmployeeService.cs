@@ -28,6 +28,13 @@ namespace TimeTrackingSystem.Application.Services
 
         }
 
+        public NewEmployeeViewModel EmployeeForEdit(int id)
+        {
+            var employee = _employeeRepo.GetEmployeeDetails(id);
+            var employeeVM = _mapper.Map<NewEmployeeViewModel>(employee);
+            return employeeVM;
+        }
+
         public ListOfEmployeesViewModel GetAllEmployees(int pageSize, int pageNo, string searchBy)
         {
             var employees = _employeeRepo.GetAllActiveEmployees().Where(p => p.Email.Contains(searchBy)) //searching
@@ -56,6 +63,13 @@ namespace TimeTrackingSystem.Application.Services
         public int RemoveEmployee(EmployeeDetailsViewModel model)
         {
             throw new NotImplementedException();
+        }
+
+        public void UpdateEmployee(NewEmployeeViewModel model)
+        {
+            var employee = _mapper.Map<Account>(model);
+            _employeeRepo.UpdateEmployee(employee);
+            
         }
     }
 }

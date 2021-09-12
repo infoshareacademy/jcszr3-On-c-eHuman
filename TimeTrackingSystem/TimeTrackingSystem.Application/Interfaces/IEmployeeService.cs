@@ -12,5 +12,7 @@ namespace TimeTrackingSystem.Application.Interfaces
         int AddEmployee(NewEmployeeViewModel model);
         int RemoveEmployee(EmployeeDetailsViewModel model);
         EmployeeDetailsViewModel GetEmployeeDetails(int accountId);
+        NewEmployeeViewModel EmployeeForEdit(int id);
+        void UpdateEmployee(NewEmployeeViewModel model);
     }
 }

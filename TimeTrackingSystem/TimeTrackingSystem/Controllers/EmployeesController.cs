@@ -48,6 +48,20 @@ namespace TimeTrackingSystem.Controllers
             return RedirectToAction("ViewEmployee", new { accountId = id });
         }
 
+        [HttpGet]
+        public IActionResult EditEmployee(int id)
+        {
+            var employee = _employeeService.EmployeeForEdit(id);
+            return View(employee);
+        }
+        [HttpPost]
+        public IActionResult EditEmployee(NewEmployeeViewModel model)
+        {
+            _employeeService.UpdateEmployee(model);
+            return RedirectToAction("ViewEmployee", new { accountId = model.Id });
+            //View(model);
+            //RedirectToAction("ViewEmployee", new { accountId = id });
+        }
 
         [HttpGet]
         public IActionResult RemoveEmployee()
