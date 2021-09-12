@@ -69,14 +69,6 @@ namespace TimeTrackingSystem.Controllers
             _employeeService.RemoveEmployee(id);
             return RedirectToAction("Index");
         }
-
-        //[HttpPost]
-        //public IActionResult RemoveEmployee(Account model)
-        //{
-        //    var id = _employeeService.RemoveEmployee(model);
-        //    return View();
-        //}
-
         public IActionResult ViewEmployee(int accountId)
         {
             var employeeModel = _employeeService.GetEmployeeDetails(accountId);
