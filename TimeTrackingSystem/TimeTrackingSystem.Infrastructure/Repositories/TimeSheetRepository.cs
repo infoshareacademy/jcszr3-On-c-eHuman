@@ -17,10 +17,10 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
 
         public void DeleteTimeSheet(int timeSheetId)
         {
-            var timeSheet = _context.Accounts.Find(timeSheetId);
+            var timeSheet = _context.TimeSheets.Find(timeSheetId);
             if (timeSheet != null)
             {
-                _context.Accounts.Remove(timeSheet);
+                _context.TimeSheets.Remove(timeSheet);
                 _context.SaveChanges();
             }
         }

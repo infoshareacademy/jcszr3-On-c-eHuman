@@ -65,17 +65,11 @@ namespace TimeTrackingSystem.Controllers
             }
 
         [HttpGet]
-            public IActionResult RemoveTimeSheet()
+            public IActionResult RemoveTimeSheet(int id)
             {
-                return View();
-            }
-
-            //[HttpPost]
-            //public IActionResult RemoveEmployee(Account model)
-            //{
-            //    var id = _employeeService.RemoveEmployee(model);
-            //    return View();
-            //}
+            _timeSheetService.RemoveTimeSheet(id);
+            return RedirectToAction("Index");
+        }
 
             public IActionResult ViewTimeSheet(int id)
             {

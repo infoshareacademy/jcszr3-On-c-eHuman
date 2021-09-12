@@ -65,9 +65,9 @@ namespace TimeTrackingSystem.Application.Services
             return timesheetVM;
         }
 
-        public int RemoveTimeSheet(TimeSheetDetailsViewModel model)
+        public void RemoveTimeSheet(int id)
         {
-            throw new NotImplementedException();
+            _timeSheetRepo.DeleteTimeSheet(id);
         }
     }
 }
