@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TimeTrackingSystem.Domain\TimeTrackingSystem.Domain.csproj" />
+    <ProjectReference Include="..\TimeTrackingSystem.Infrastructure\TimeTrackingSystem.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

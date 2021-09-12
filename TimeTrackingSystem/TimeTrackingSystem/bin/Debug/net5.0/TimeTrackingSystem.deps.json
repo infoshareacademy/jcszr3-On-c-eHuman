@@ -2009,7 +2009,8 @@
           "FluentValidation.AspNetCore": "10.3.3",
           "FluentValidation.DependencyInjectionExtensions": "10.3.3",
           "Microsoft.EntityFrameworkCore": "5.0.9",
-          "TimeTrackingSystem.Domain": "1.0.0"
+          "TimeTrackingSystem.Domain": "1.0.0",
+          "TimeTrackingSystem.Infrastructure": "1.0.0"
         },
         "runtime": {
           "TimeTrackingSystem.Application.dll": {}

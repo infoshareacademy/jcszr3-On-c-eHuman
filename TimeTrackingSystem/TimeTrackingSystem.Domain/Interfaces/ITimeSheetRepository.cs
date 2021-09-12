@@ -11,7 +11,7 @@ namespace TimeTrackingSystem.Domain.Interfaces
         void DeleteTimeSheet(int timeSheetId);
         int AddTimeSheet(TimeSheet timeSheet);
         IQueryable<TimeSheet> GetTimeSheetsByEmployeeId(int accountId);
-        IQueryable<TimeSheet> GetAllTimeSheets();
+        IQueryable<TimeSheetAccountDTO> GetAllTimeSheets();
         TimeSheet GetTimeSheetDetails(int TimeSheetId);
         void UpdateTimeSheet(TimeSheet timesheet);
     }

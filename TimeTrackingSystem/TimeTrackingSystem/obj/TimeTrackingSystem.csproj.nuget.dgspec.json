@@ -37,6 +37,9 @@
             "projectReferences": {
               "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj": {
                 "projectPath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj"
+              },
+              "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\TimeTrackingSystem.Infrastructure.csproj": {
+                "projectPath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\TimeTrackingSystem.Infrastructure.csproj"
               }
             }
           }

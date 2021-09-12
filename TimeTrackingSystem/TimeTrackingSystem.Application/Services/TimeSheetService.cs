@@ -9,6 +9,7 @@ using TimeTrackingSystem.Application.ViewModels;
 using TimeTrackingSystem.Application.ViewModels.TimeSheet;
 using TimeTrackingSystem.Domain.Interfaces;
 using TimeTrackingSystem.Domain.Model;
+using TimeTrackingSystem.Infrastructure.Repositories;
 
 namespace TimeTrackingSystem.Application.Services
 {
@@ -27,7 +28,6 @@ namespace TimeTrackingSystem.Application.Services
             var timeSh = _mapper.Map<TimeSheet>(timesheet);
             var id = _timeSheetRepo.AddTimeSheet(timeSh);
             return id;
-
         }
         public NewTimeSheetViewModel TimeSheetForEdit(int id)
         {
@@ -43,8 +43,8 @@ namespace TimeTrackingSystem.Application.Services
 
         public ListOfTimeSheetsViewModel GetAllTimeSheets(int pageSize, int pageNo)
         {
-            var timesheets = _timeSheetRepo.GetAllTimeSheets() //searching
-                .ProjectTo<TimeSheetDetailsViewModel>(_mapper.ConfigurationProvider).ToList(); //list of objects
+            var timesheets = _timeSheetRepo.GetAllTimeSheets()//searching
+                .ProjectTo<TimeSheetAccountDTOViewModel>(_mapper.ConfigurationProvider).ToList(); //list of objects
 
             var timeSheetsToShow = timesheets.Skip(pageSize * (pageNo - 1)).Take(pageSize).ToList(); //pagination
 

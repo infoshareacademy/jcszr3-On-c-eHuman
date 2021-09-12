@@ -24,7 +24,7 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
                 _context.SaveChanges();
             }
         }
-
+        
         public int AddTimeSheet(TimeSheet timeSheet)
         {
             _context.TimeSheets.Add(timeSheet);
@@ -38,11 +38,23 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
             return timesheets;
         }
 
-        public IQueryable<TimeSheet> GetAllTimeSheets()
+        public IQueryable<TimeSheetAccountDTO> GetAllTimeSheets()
         {
-            var timesheets = _context.TimeSheets;
-            return timesheets;
+            var timesheetAccount = from v in _context.TimeSheets
+                                   join si in _context.Accounts on v.AccountId equals si.Id into loj
+                from rs in loj.DefaultIfEmpty()
+                
+                select new TimeSheetAccountDTO() { Employee = rs, TimeSheet = v };
+
+            //var timesheetAccount = from v in _context.Accounts
+            //    join si in _context.TimeSheets on v.Id equals si.AccountId into loj
+            //    from rs in loj.DefaultIfEmpty()
+            //    where
+            //        v.IsEnable == true
+            //    select new TimeSheetAccountDTO() { Employee = v, TimeSheet = rs };
+            return timesheetAccount;
         }
+
         public TimeSheet GetTimeSheetDetails(int timesheetId)
         {
             var timesheet = _context.TimeSheets.FirstOrDefault(i => i.Id == timesheetId);

@@ -1,10 +1,10 @@
 ﻿@model TimeTrackingSystem.Application.ViewModels.ListOfEmployeesViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Employees";
 }
 
-<h1>Index</h1>
+<h1>Employees</h1>
 
 <p>
     <a asp-action="AddEmployee">Create New</a>
@@ -19,13 +19,10 @@
             <thead>
             <tr>
                 <th>
-                    Id
+                    Employee:
                 </th>
                 <th>
-                    Full name
-                </th>
-                <th>
-                    Email
+                    Email:
                 </th>
                 <th></th>
             </tr>
@@ -35,17 +32,14 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Employee_FullName)
+
+                        @Html.ActionLink(item.Employee_FullName, "ViewEmployee", new { accountId = item.Id })
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Email)
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "EditEmployee", new { id = item.Id }) |
-                        @Html.ActionLink(item.Employee_FullName, "ViewEmployee", new { accountId = item.Id }) |
                         @Html.ActionLink("Delete", "RemoveEmployee", new { id = item.Id })
                     </td>
                 </tr>
@@ -75,7 +69,7 @@
             </tr>
         </table>
         <input type="hidden" name="pageNo" id="pageNo"/>
-        <input type="hidden" name="pageSize" id="pageSize" value="2"/>
+        <input type="hidden" name="pageSize" id="pageSize" value="5"/>
     </div>
 </form>
 

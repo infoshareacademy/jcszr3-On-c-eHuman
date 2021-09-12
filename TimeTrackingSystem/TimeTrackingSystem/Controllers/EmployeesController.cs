@@ -15,7 +15,7 @@ namespace TimeTrackingSystem.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var model = _employeeService.GetAllEmployees(2, 1, "");
+            var model = _employeeService.GetAllEmployees(5, 1, "");
             return View(model);
         }
         
