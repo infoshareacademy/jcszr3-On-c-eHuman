@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using AutoMapper;
+using FluentValidation;
+using FluentValidation.Validators;
 using TimeTrackingSystem.Application.Mapping;
 using TimeTrackingSystem.Application.ViewModels.Employee;
 using TimeTrackingSystem.Domain.Model;
@@ -22,6 +24,14 @@ namespace TimeTrackingSystem.Application.ViewModels.TimeSheet
         {
             //<source, destination>
             profile.CreateMap<NewTimeSheetViewModel, Domain.Model.TimeSheet>();
+        }
+    }
+    public class NewTimeSheetValidation : AbstractValidator<NewTimeSheetViewModel>
+    {
+        public NewTimeSheetValidation()
+        {
+            RuleFor(x => x.Id).NotNull();
+            RuleFor(x => x.Comments).Length(3, 50);
         }
     }
 }
