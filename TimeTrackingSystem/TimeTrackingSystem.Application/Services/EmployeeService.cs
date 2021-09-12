@@ -25,7 +25,6 @@ namespace TimeTrackingSystem.Application.Services
             var emp = _mapper.Map<Account>(employee);
             var id = _employeeRepo.AddEmployee(emp);
             return id;
-
         }
 
         public NewEmployeeViewModel EmployeeForEdit(int id)
@@ -38,8 +37,7 @@ namespace TimeTrackingSystem.Application.Services
         public void UpdateEmployee(NewEmployeeViewModel model)
         {
             var employee = _mapper.Map<Account>(model);
-            _employeeRepo.UpdateEmployee(employee);
-            
+            _employeeRepo.UpdateEmployee(employee); 
         }
         
         public ListOfEmployeesViewModel GetAllEmployees(int pageSize, int pageNo, string searchBy)
