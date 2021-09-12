@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using FluentValidation;
 using TimeTrackingSystem.Application.Mapping;
 using TimeTrackingSystem.Domain.Model;
 
@@ -22,6 +23,15 @@ namespace TimeTrackingSystem.Application.ViewModels.Employee
         {
             //<source, destination>
             profile.CreateMap<NewEmployeeViewModel, Account>();
+        }
+    }
+    public class NewEmployeeValidation : AbstractValidator<NewEmployeeViewModel>
+    {
+        public NewEmployeeValidation()
+        {
+            RuleFor(x => x.First_Name).Length(2, 15);
+            RuleFor(x => x.Last_Name).Length(2, 15);
+            RuleFor(x => x.Email).EmailAddress();
         }
     }
 }

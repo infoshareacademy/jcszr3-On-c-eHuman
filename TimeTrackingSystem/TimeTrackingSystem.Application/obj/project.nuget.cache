@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "h609aqpzyNKnJ6G8BDbUltxc8vAn3ETDyqqThoBr2SJ9AOMOB7bcICv1zGl8a7j+HqxfS/66IB6v/V4EUhr4Ow==",
+  "dgSpecHash": "64uFoFO04zXJjbso4+Bgr8el6ubuEa5ug+LmInvfI7n6gHdrfcCwG/Kyrzaqr0LvzKYu7obb1tm0Z/J4/MaRqg==",
   "success": true,
   "projectFilePath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Application\\TimeTrackingSystem.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\9dani\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\9dani\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
+    "C:\\Users\\9dani\\.nuget\\packages\\fluentvalidation\\10.3.3\\fluentvalidation.10.3.3.nupkg.sha512",
+    "C:\\Users\\9dani\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.3\\fluentvalidation.aspnetcore.10.3.3.nupkg.sha512",
+    "C:\\Users\\9dani\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.3\\fluentvalidation.dependencyinjectionextensions.10.3.3.nupkg.sha512",
     "C:\\Users\\9dani\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\9dani\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\9dani\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.9\\microsoft.entityframeworkcore.5.0.9.nupkg.sha512",
