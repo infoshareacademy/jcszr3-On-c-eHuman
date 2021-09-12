@@ -34,7 +34,14 @@ namespace TimeTrackingSystem.Application.Services
             var employeeVM = _mapper.Map<NewEmployeeViewModel>(employee);
             return employeeVM;
         }
-
+        
+        public void UpdateEmployee(NewEmployeeViewModel model)
+        {
+            var employee = _mapper.Map<Account>(model);
+            _employeeRepo.UpdateEmployee(employee);
+            
+        }
+        
         public ListOfEmployeesViewModel GetAllEmployees(int pageSize, int pageNo, string searchBy)
         {
             var employees = _employeeRepo.GetAllActiveEmployees().Where(p => p.Email.Contains(searchBy)) //searching
@@ -63,13 +70,6 @@ namespace TimeTrackingSystem.Application.Services
         public void RemoveEmployee(int id)
         {
             _employeeRepo.DeleteEmployee(id);
-        }
-
-        public void UpdateEmployee(NewEmployeeViewModel model)
-        {
-            var employee = _mapper.Map<Account>(model);
-            _employeeRepo.UpdateEmployee(employee);
-            
-        }
+        } 
     }
 }
