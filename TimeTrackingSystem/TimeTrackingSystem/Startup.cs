@@ -44,6 +44,7 @@ namespace TimeTrackingSystem
             services.AddControllersWithViews().AddFluentValidation(fv => fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false);
             services.AddRazorPages();
 
+            services.AddTransient<IValidator<NewTimeSheetViewModel>, NewTimeSheetValidation>();
             services.AddTransient<IValidator<NewEmployeeViewModel>, NewEmployeeValidation>();
         }
 

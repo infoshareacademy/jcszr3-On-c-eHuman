@@ -32,16 +32,31 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
             return timeSheet.Id;
         }
 
-        public IQueryable<TimeSheet> GetTimeSheetsByTimeSheetId(int timeSheetId)
+        public IQueryable<TimeSheet> GetTimeSheetsByEmployeeId(int accountId)
         {
-            var timeSheets = _context.TimeSheets.Where(i => i.Id == timeSheetId);
-            return timeSheets;
+            var timesheets = _context.TimeSheets.Where(i => i.AccountId == accountId);
+            return timesheets;
         }
 
-        public TimeSheet GetTimeSheetById(int TimeSheetId)
+        public IQueryable<TimeSheet> GetAllTimeSheets()
         {
-            var TimeSheet = _context.TimeSheets.FirstOrDefault(i => i.Id == TimeSheetId);
-            return TimeSheet;
+            var timesheets = _context.TimeSheets;
+            return timesheets;
+        }
+        public TimeSheet GetTimeSheetDetails(int timesheetId)
+        {
+            var timesheet = _context.TimeSheets.FirstOrDefault(i => i.Id == timesheetId);
+            
+            return timesheet;
+        }
+
+        public void UpdateTimeSheet(TimeSheet timesheet)
+        {
+            _context.Attach(timesheet);
+            _context.Entry(timesheet).Property("Time_from").IsModified = true;
+            _context.Entry(timesheet).Property("Time_to").IsModified = true;
+            _context.Entry(timesheet).Property("Comments").IsModified = true;
+            _context.SaveChanges();
         }
     }
 }

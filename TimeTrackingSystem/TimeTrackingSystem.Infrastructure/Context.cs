@@ -29,9 +29,6 @@ namespace TimeTrackingSystem.Infrastructure
                 .HasForeignKey(it => it.RoleId);
 
             builder.Entity<TimeSheet>()
-                .HasKey(it => new { it.AccountId , it.ActivityId });
-
-            builder.Entity<TimeSheet>()
                 .HasOne<Account>(it => it.Account)
                 .WithMany(i => i.TimeSheets)
                 .HasForeignKey(it => it.AccountId);

@@ -7,9 +7,12 @@ namespace TimeTrackingSystem.Application.Interfaces
 {
     public interface ITimeSheetService
     {
-        ListOfTimeSheetsViewModel GetAllTimeSheets();
+        ListOfTimeSheetsViewModel GetAllTimeSheets(int pageSize, int pageNo);
         int AddTimeSheet(NewTimeSheetViewModel model);
-        int RemoveTimeSheet(TimeSheetDetailsViewModel model);
-        TimeSheetDetailsViewModel GetTimeSheetDetails(int accountId);
+        void RemoveTimeSheet(int id);
+        TimeSheetDetailsViewModel GetTimeSheetDetails(int id);
+        NewTimeSheetViewModel TimeSheetForEdit(int id);
+        void UpdateTimeSheet(NewTimeSheetViewModel model);
+        
     }
 }
