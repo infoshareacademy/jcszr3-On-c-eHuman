@@ -48,5 +48,13 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
             var account = _context.Accounts.FirstOrDefault(i => i.Id == accountId);
             return account;
         }
+
+        public void UpdateEmployee(Account employee)
+        {
+            _context.Attach(employee);
+            _context.Entry(employee).Property("Email").IsModified = true;
+            _context.Entry(employee).Property("Status").IsModified = true;
+            _context.SaveChanges();
+        }
     }
 }

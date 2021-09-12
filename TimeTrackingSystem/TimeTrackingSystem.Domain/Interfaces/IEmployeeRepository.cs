@@ -13,5 +13,6 @@ namespace TimeTrackingSystem.Domain.Interfaces
         IQueryable<Account> GetEmployeesByRoleId(int roleId);
         IQueryable<Account> GetAllActiveEmployees();
         Account GetEmployeeDetails(int accountId);
+        void UpdateEmployee(Account model);
     }
 }

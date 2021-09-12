@@ -11,7 +11,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using TimeTrackingSystem.Application;
+using TimeTrackingSystem.Application.ViewModels.Employee;
+using TimeTrackingSystem.Application.ViewModels.TimeSheet;
 using TimeTrackingSystem.Infrastructure;
 
 namespace TimeTrackingSystem
@@ -37,8 +41,10 @@ namespace TimeTrackingSystem
             services.AddApplication();
             services.AddInfrastructure();
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddFluentValidation(fv => fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false);
             services.AddRazorPages();
+
+            services.AddTransient<IValidator<NewEmployeeViewModel>, NewEmployeeValidation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
