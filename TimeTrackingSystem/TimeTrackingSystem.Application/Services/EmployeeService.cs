@@ -60,9 +60,9 @@ namespace TimeTrackingSystem.Application.Services
             return employeeVM;
         }
 
-        public int RemoveEmployee(EmployeeDetailsViewModel model)
+        public void RemoveEmployee(int id)
         {
-            throw new NotImplementedException();
+            _employeeRepo.DeleteEmployee(id);
         }
 
         public void UpdateEmployee(NewEmployeeViewModel model)

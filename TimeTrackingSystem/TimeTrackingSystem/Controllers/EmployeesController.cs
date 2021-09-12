@@ -64,9 +64,10 @@ namespace TimeTrackingSystem.Controllers
         }
 
         [HttpGet]
-        public IActionResult RemoveEmployee()
+        public IActionResult RemoveEmployee(int id)
         {
-            return View();
+            _employeeService.RemoveEmployee(id);
+            return RedirectToAction("Index");
         }
 
         //[HttpPost]
