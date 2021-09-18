@@ -15,41 +15,28 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
             _context = context;
         }
 
-        public void DeleteEmployee(int accountId)
+        public void DeleteEmployee(int id)
         {
-            //var account = _context.Accounts.Find(accountId);
-            //if (account != null)
-            //{
-            //    _context.Accounts.Remove(account);
-            //    _context.SaveChanges();
-            //}
-        }
-
-        public int AddEmployee(Account account)
-        {
-            //_context.Accounts.Add(account);
-            //_context.SaveChanges();
-            return default;
-        }
-
-        public IQueryable<Account> GetEmployeesByRoleId(int roleId)
-        {
-            //var accounts = _context.Accounts.Where(i => i.RoleId == roleId);
-            return default;
+            var account = _context.ApplicationUsers.Find(id);
+            if (account != null)
+            {
+                _context.ApplicationUsers.Remove(account);
+                _context.SaveChanges();
+            }
         }
 
         public IQueryable<Account> GetAllActiveEmployees()
         {
-            //var accounts = _context.Accounts.Where(i => i.IsEnable);
+            //var accounts = _context.ApplicationUsers.Where(i => i.IsEnable);
             return default;
         }
-        public Account GetEmployeeDetails(int accountId)
+        public ApplicationUser GetEmployeeDetails(int accountId)
         {
-            //var account = _context.Accounts.FirstOrDefault(i => i.Id == accountId);
+            //var account = _context.ApplicationUsers.FirstOrDefault(i => i.Id == accountId);
             return default;
         }
 
-        public void UpdateEmployee(Account employee)
+        public void UpdateEmployee(ApplicationUser employee)
         {
             _context.Attach(employee);
             _context.Entry(employee).Property("Email").IsModified = true;

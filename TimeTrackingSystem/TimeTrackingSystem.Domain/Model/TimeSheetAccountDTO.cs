@@ -7,6 +7,6 @@ namespace TimeTrackingSystem.Domain.Model
     public class TimeSheetAccountDTO
     {
         public TimeSheet TimeSheet { get; set; }
-        public Account Employee { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

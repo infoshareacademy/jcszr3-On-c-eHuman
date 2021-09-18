@@ -35,40 +35,40 @@ namespace TimeTrackingSystem.Controllers
             return View(model);
         }
 
-        [HttpGet]
-        public IActionResult AddEmployee()
-        {
-            return View(new NewEmployeeViewModel());
-        }
+        //[HttpGet]
+        //public IActionResult AddEmployee()
+        //{
+        //    return View(new NewEmployeeViewModel());
+        //}
 
-        [HttpPost]
-        public IActionResult AddEmployee(NewEmployeeViewModel model)
-        {
-            var id = _employeeService.AddEmployee(model);
-            return RedirectToAction("ViewEmployee", new { accountId = id });
-        }
+        //[HttpPost]
+        //public IActionResult AddEmployee(NewEmployeeViewModel model)
+        //{
+        //    var id = _employeeService.AddEmployee(model);
+        //    return RedirectToAction("ViewEmployee", new { accountId = id });
+        //}
 
-        [HttpGet]
-        public IActionResult EditEmployee(int id)
-        {
-            var employee = _employeeService.EmployeeForEdit(id);
-            return View(employee);
-        }
-        [HttpPost]
-        public IActionResult EditEmployee(NewEmployeeViewModel model)
-        {
-            _employeeService.UpdateEmployee(model);
-            return RedirectToAction("ViewEmployee", new { accountId = model.Id });
-            //View(model);
-            //RedirectToAction("ViewEmployee", new { accountId = id });
-        }
+        //[HttpGet]
+        //public IActionResult EditEmployee(int id)
+        //{
+        //    var employee = _employeeService.EmployeeForEdit(id);
+        //    return View(employee);
+        //}
+        //[HttpPost]
+        //public IActionResult EditEmployee(NewEmployeeViewModel model)
+        //{
+        //    _employeeService.UpdateEmployee(model);
+        //    return RedirectToAction("ViewEmployee", new { accountId = model.Id });
+        //    //View(model);
+        //    //RedirectToAction("ViewEmployee", new { accountId = id });
+        //}
 
-        [HttpGet]
-        public IActionResult RemoveEmployee(int id)
-        {
-            _employeeService.RemoveEmployee(id);
-            return RedirectToAction("Index");
-        }
+        //[HttpGet]
+        //public IActionResult RemoveEmployee(int id)
+        //{
+        //    _employeeService.RemoveEmployee(id);
+        //    return RedirectToAction("Index");
+        //}
         public IActionResult ViewEmployee(int accountId)
         {
             var employeeModel = _employeeService.GetEmployeeDetails(accountId);

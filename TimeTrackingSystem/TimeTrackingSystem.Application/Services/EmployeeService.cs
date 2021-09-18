@@ -20,13 +20,6 @@ namespace TimeTrackingSystem.Application.Services
             _mapper = mapper;
         }
 
-        public int AddEmployee(NewEmployeeViewModel employee)
-        {
-            var emp = _mapper.Map<Account>(employee);
-            var id = _employeeRepo.AddEmployee(emp);
-            return id;
-        }
-
         public NewEmployeeViewModel EmployeeForEdit(int id)
         {
             var employee = _employeeRepo.GetEmployeeDetails(id);
@@ -34,11 +27,11 @@ namespace TimeTrackingSystem.Application.Services
             return employeeVM;
         }
         
-        public void UpdateEmployee(NewEmployeeViewModel model)
-        {
-            var employee = _mapper.Map<Account>(model);
-            _employeeRepo.UpdateEmployee(employee); 
-        }
+        //public void UpdateEmployee(NewEmployeeViewModel model)
+        //{
+        //    var employee = _mapper.Map<Account>(model);
+        //    _employeeRepo.UpdateEmployee(employee); 
+        //}
         
         public ListOfEmployeesViewModel GetAllEmployees(int pageSize, int pageNo, string searchBy)
         {
@@ -65,9 +58,9 @@ namespace TimeTrackingSystem.Application.Services
             return employeeVM;
         }
 
-        public void RemoveEmployee(int id)
-        {
-            _employeeRepo.DeleteEmployee(id);
-        } 
+        //public void RemoveEmployee(int id)
+        //{
+        //    _employeeRepo.DeleteEmployee(id);
+        //} 
     }
 }

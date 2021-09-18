@@ -7,7 +7,7 @@ using TimeTrackingSystem.Domain.Model;
 
 namespace TimeTrackingSystem.Application.ViewModels
 {
-    public class EmployeeDetailsViewModel : IMapFrom<Account>
+    public class EmployeeDetailsViewModel : IMapFrom<ApplicationUser>
     {
         public int Id { get; set; }
         public string Employee_FullName { get; set; }
@@ -20,7 +20,7 @@ namespace TimeTrackingSystem.Application.ViewModels
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Account, EmployeeDetailsViewModel>()
+            profile.CreateMap<ApplicationUser, EmployeeDetailsViewModel>()
                 .ForMember(s => s.Employee_FullName, opt => opt.MapFrom(d => d.First_Name + " " + d.Last_Name));   
         }
     }

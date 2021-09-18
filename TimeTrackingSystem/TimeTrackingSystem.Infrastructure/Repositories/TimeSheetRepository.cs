@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.V4.Pages.Account.Manage.Internal;
+using Microsoft.Extensions.Logging;
 using TimeTrackingSystem.Domain.Interfaces;
 using TimeTrackingSystem.Domain.Model;
 
@@ -10,6 +13,8 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
     public class TimeSheetRepository : ITimeSheetRepository
     {
         private readonly Context _context;
+        private readonly ILogger<IndexModel> _logger;
+        private readonly UserManager<IdentityUser> _userManager;
         public TimeSheetRepository(Context context)
         {
             _context = context;
@@ -27,9 +32,9 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
         
         public int AddTimeSheet(TimeSheet timeSheet)
         {
-            _context.TimeSheets.Add(timeSheet);
-            _context.SaveChanges();
-            return timeSheet.Id;
+            //_context.TimeSheets.Add(timeSheet);
+            //_context.SaveChanges();
+            return default;
         }
 
         public IQueryable<TimeSheet> GetTimeSheetsByEmployeeId(int accountId)
@@ -40,26 +45,21 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
 
         public IQueryable<TimeSheetAccountDTO> GetAllTimeSheets()
         {
-            //var timesheetAccount = from v in _context.TimeSheets
-            //                       join si in _context.Accounts on v.AccountId equals si.Id into loj
-            //    from rs in loj.DefaultIfEmpty()
-                
-            //    select new TimeSheetAccountDTO() { Employee = rs, TimeSheet = v };
+            
+            var timesheetAccount = from v in _context.TimeSheets
+                join si in _context.ApplicationUsers on v.ApplicationUserId equals si.Id into loj
+                from rs in loj.DefaultIfEmpty()
 
-            //var timesheetAccount = from v in _context.Accounts
-            //    join si in _context.TimeSheets on v.Id equals si.AccountId into loj
-            //    from rs in loj.DefaultIfEmpty()
-            //    where
-            //        v.IsEnable == true
-            //    select new TimeSheetAccountDTO() { Employee = v, TimeSheet = rs };
-            return default;
+                select new TimeSheetAccountDTO() { ApplicationUser = rs, TimeSheet = v };
+
+            return timesheetAccount;
         }
 
         public TimeSheet GetTimeSheetDetails(int timesheetId)
         {
-            var timesheet = _context.TimeSheets.FirstOrDefault(i => i.Id == timesheetId);
+            //var timesheet = _context.TimeSheets.FirstOrDefault(i => i.Id == timesheetId);
             
-            return timesheet;
+            return default;
         }
 
         public void UpdateTimeSheet(TimeSheet timesheet)
