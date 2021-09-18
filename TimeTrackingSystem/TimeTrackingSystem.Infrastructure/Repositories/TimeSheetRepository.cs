@@ -34,17 +34,17 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
 
         public IQueryable<TimeSheet> GetTimeSheetsByEmployeeId(int accountId)
         {
-            var timesheets = _context.TimeSheets.Where(i => i.AccountId == accountId);
-            return timesheets;
+            //var timesheets = _context.TimeSheets.Where(i => i.AccountId == accountId);
+            return default;
         }
 
         public IQueryable<TimeSheetAccountDTO> GetAllTimeSheets()
         {
-            var timesheetAccount = from v in _context.TimeSheets
-                                   join si in _context.Accounts on v.AccountId equals si.Id into loj
-                from rs in loj.DefaultIfEmpty()
+            //var timesheetAccount = from v in _context.TimeSheets
+            //                       join si in _context.Accounts on v.AccountId equals si.Id into loj
+            //    from rs in loj.DefaultIfEmpty()
                 
-                select new TimeSheetAccountDTO() { Employee = rs, TimeSheet = v };
+            //    select new TimeSheetAccountDTO() { Employee = rs, TimeSheet = v };
 
             //var timesheetAccount = from v in _context.Accounts
             //    join si in _context.TimeSheets on v.Id equals si.AccountId into loj
@@ -52,7 +52,7 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
             //    where
             //        v.IsEnable == true
             //    select new TimeSheetAccountDTO() { Employee = v, TimeSheet = rs };
-            return timesheetAccount;
+            return default;
         }
 
         public TimeSheet GetTimeSheetDetails(int timesheetId)

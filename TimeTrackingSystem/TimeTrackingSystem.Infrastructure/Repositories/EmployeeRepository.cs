@@ -17,36 +17,36 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
 
         public void DeleteEmployee(int accountId)
         {
-            var account = _context.Accounts.Find(accountId);
-            if (account != null)
-            {
-                _context.Accounts.Remove(account);
-                _context.SaveChanges();
-            }
+            //var account = _context.Accounts.Find(accountId);
+            //if (account != null)
+            //{
+            //    _context.Accounts.Remove(account);
+            //    _context.SaveChanges();
+            //}
         }
 
         public int AddEmployee(Account account)
         {
-            _context.Accounts.Add(account);
-            _context.SaveChanges();
-            return account.Id;
+            //_context.Accounts.Add(account);
+            //_context.SaveChanges();
+            return default;
         }
 
         public IQueryable<Account> GetEmployeesByRoleId(int roleId)
         {
-            var accounts = _context.Accounts.Where(i => i.RoleId == roleId);
-            return accounts;
+            //var accounts = _context.Accounts.Where(i => i.RoleId == roleId);
+            return default;
         }
 
         public IQueryable<Account> GetAllActiveEmployees()
         {
-            var accounts = _context.Accounts.Where(i => i.IsEnable);
-            return accounts;
+            //var accounts = _context.Accounts.Where(i => i.IsEnable);
+            return default;
         }
         public Account GetEmployeeDetails(int accountId)
         {
-            var account = _context.Accounts.FirstOrDefault(i => i.Id == accountId);
-            return account;
+            //var account = _context.Accounts.FirstOrDefault(i => i.Id == accountId);
+            return default;
         }
 
         public void UpdateEmployee(Account employee)

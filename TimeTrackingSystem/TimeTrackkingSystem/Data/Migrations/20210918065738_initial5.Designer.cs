@@ -5,20 +5,21 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TimeTrackingSystem.Infrastructure;
+using TimeTrackkingSystem.Data;
 
-namespace TimeTrackingSystem.Infrastructure.Migrations
+namespace TimeTrackkingSystem.Data.Migrations
 {
-    [DbContext(typeof(Context))]
-    [Migration("20210912111543_init")]
-    partial class init
+    [DbContext(typeof(ApplicationDbContext))]
+    [Migration("20210918065738_initial5")]
+    partial class initial5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("Identity")
+                .HasAnnotation("ProductVersion", "3.1.18")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -31,21 +32,21 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
                     b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
+                        .HasName("RoleNameIndex")
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
-                    b.ToTable("AspNetRoles");
+                    b.ToTable("Role");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -69,7 +70,7 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetRoleClaims");
+                    b.ToTable("RoleClaims");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
@@ -84,9 +85,13 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
@@ -98,12 +103,12 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
                     b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
@@ -121,20 +126,22 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
+                        .HasName("EmailIndex");
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
+                        .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("AspNetUsers");
+                    b.ToTable("User");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -158,18 +165,16 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserClaims");
+                    b.ToTable("UserClaims");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -182,7 +187,7 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserLogins");
+                    b.ToTable("UserLogins");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
@@ -197,7 +202,7 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetUserRoles");
+                    b.ToTable("UserRoles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -206,19 +211,17 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("AspNetUserTokens");
+                    b.ToTable("UserTokens");
                 });
 
             modelBuilder.Entity("TimeTrackingSystem.Domain.Model.Account", b =>
@@ -256,7 +259,7 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Accounts");
+                    b.ToTable("Account");
                 });
 
             modelBuilder.Entity("TimeTrackingSystem.Domain.Model.Activity", b =>
@@ -298,6 +301,9 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
 
+                    b.Property<string>("EmployeeId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("End_date")
                         .HasColumnType("datetime2");
 
@@ -320,6 +326,8 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
 
                     b.HasIndex("AccountId");
 
+                    b.HasIndex("EmployeeId");
+
                     b.ToTable("Projects");
                 });
 
@@ -335,7 +343,7 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Role1");
                 });
 
             modelBuilder.Entity("TimeTrackingSystem.Domain.Model.TimeSheet", b =>
@@ -345,7 +353,7 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AccountId")
+                    b.Property<int?>("AccountId")
                         .HasColumnType("int");
 
                     b.Property<int>("ActivityId")
@@ -360,6 +368,12 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                     b.Property<DateTime>("Date_submitted")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EmployeeId1")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("Time_from")
                         .HasColumnType("datetime2");
 
@@ -372,7 +386,28 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
 
                     b.HasIndex("ActivityId");
 
+                    b.HasIndex("EmployeeId1");
+
                     b.ToTable("TimeSheets");
+                });
+
+            modelBuilder.Entity("TimeTrackingSystem.Domain.Model.Employee", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("First_Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Last_Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("PhotoProfile")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("Employee");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -433,8 +468,6 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Role");
                 });
 
             modelBuilder.Entity("TimeTrackingSystem.Domain.Model.Activity", b =>
@@ -444,8 +477,6 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Project");
                 });
 
             modelBuilder.Entity("TimeTrackingSystem.Domain.Model.Project", b =>
@@ -456,47 +487,25 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Account");
+                    b.HasOne("TimeTrackingSystem.Domain.Model.Employee", null)
+                        .WithMany("Projects")
+                        .HasForeignKey("EmployeeId");
                 });
 
             modelBuilder.Entity("TimeTrackingSystem.Domain.Model.TimeSheet", b =>
                 {
-                    b.HasOne("TimeTrackingSystem.Domain.Model.Account", "Account")
+                    b.HasOne("TimeTrackingSystem.Domain.Model.Account", null)
                         .WithMany("TimeSheets")
-                        .HasForeignKey("AccountId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AccountId");
 
                     b.HasOne("TimeTrackingSystem.Domain.Model.Activity", "Activity")
                         .WithMany("TimeSheets")
                         .HasForeignKey("ActivityId")
                         .IsRequired();
 
-                    b.Navigation("Account");
-
-                    b.Navigation("Activity");
-                });
-
-            modelBuilder.Entity("TimeTrackingSystem.Domain.Model.Account", b =>
-                {
-                    b.Navigation("Projects");
-
-                    b.Navigation("TimeSheets");
-                });
-
-            modelBuilder.Entity("TimeTrackingSystem.Domain.Model.Activity", b =>
-                {
-                    b.Navigation("TimeSheets");
-                });
-
-            modelBuilder.Entity("TimeTrackingSystem.Domain.Model.Project", b =>
-                {
-                    b.Navigation("Activities");
-                });
-
-            modelBuilder.Entity("TimeTrackingSystem.Domain.Model.Role", b =>
-                {
-                    b.Navigation("Accounts");
+                    b.HasOne("TimeTrackingSystem.Domain.Model.Employee", "Employee")
+                        .WithMany("TimeSheets")
+                        .HasForeignKey("EmployeeId1");
                 });
 #pragma warning restore 612, 618
         }

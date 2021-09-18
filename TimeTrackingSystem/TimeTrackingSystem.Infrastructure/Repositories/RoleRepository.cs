@@ -27,21 +27,21 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
 
         public int AddRole(Role role)
         {
-            _context.Roles.Add(role);
-            _context.SaveChanges();
-            return role.Id;
+           // _context.Roles.Add(role);
+            //_context.SaveChanges();
+            return default;
         }
 
         public IQueryable<Role> GetRolesByRoleId(int roleId)
         {
-            var roles = _context.Roles.Where(i => i.Id == roleId);
-            return roles;
+            //var roles = _context.Roles.Where(i => i.Id == roleId);
+            return default;
         }
 
         public Role GetRoleById(int roleId)
         {
-            var role = _context.Roles.FirstOrDefault(i => i.Id == roleId);
-            return role;
+            //var role = _context.Roles.FirstOrDefault(i => i.Id == roleId);
+            return default;
         }
     }
 }

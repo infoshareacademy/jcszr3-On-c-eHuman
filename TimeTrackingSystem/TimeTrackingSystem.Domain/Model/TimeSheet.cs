@@ -7,8 +7,8 @@ namespace TimeTrackingSystem.Domain.Model
     public class TimeSheet
     {
         public int Id { get; set; }
-        public int AccountId { get; set; }
-        public virtual Account Account { get; set; }
+        public int EmployeeId { get; set; }
+        public virtual Employee Employee { get; set; }
         public DateTime Date { get; set; }
         public DateTime Time_from { get; set; }
         public DateTime Time_to { get; set; }

@@ -3,12 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTrackingSystem", "TimeTrackingSystem\TimeTrackingSystem.csproj", "{9836BC94-053B-4780-AAE5-C1C7EA1038FA}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FDB18F93-68A6-4155-87E7-06EC25DFF6EB} = {FDB18F93-68A6-4155-87E7-06EC25DFF6EB}
-		{34E777F4-E0B3-4928-B3CD-BD5EAA6FB325} = {34E777F4-E0B3-4928-B3CD-BD5EAA6FB325}
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTrackingSystem.Application", "TimeTrackingSystem.Application\TimeTrackingSystem.Application.csproj", "{FDB18F93-68A6-4155-87E7-06EC25DFF6EB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2CD83924-8480-4732-BF44-2BE8DE1ABAA4} = {2CD83924-8480-4732-BF44-2BE8DE1ABAA4}
@@ -33,16 +27,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{78577A92-FC3F-4D0E-9DC0-308FB5963CDC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackkingSystem", "TimeTrackkingSystem\TimeTrackkingSystem.csproj", "{68F6FBF7-9B32-4E32-9735-CA446E246781}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FDB18F93-68A6-4155-87E7-06EC25DFF6EB} = {FDB18F93-68A6-4155-87E7-06EC25DFF6EB}
+		{34E777F4-E0B3-4928-B3CD-BD5EAA6FB325} = {34E777F4-E0B3-4928-B3CD-BD5EAA6FB325}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9836BC94-053B-4780-AAE5-C1C7EA1038FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9836BC94-053B-4780-AAE5-C1C7EA1038FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9836BC94-053B-4780-AAE5-C1C7EA1038FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9836BC94-053B-4780-AAE5-C1C7EA1038FA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FDB18F93-68A6-4155-87E7-06EC25DFF6EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FDB18F93-68A6-4155-87E7-06EC25DFF6EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDB18F93-68A6-4155-87E7-06EC25DFF6EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -59,12 +55,15 @@ Global
 		{B3651159-3332-4A00-A290-3DC4243C4DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3651159-3332-4A00-A290-3DC4243C4DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3651159-3332-4A00-A290-3DC4243C4DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68F6FBF7-9B32-4E32-9735-CA446E246781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68F6FBF7-9B32-4E32-9735-CA446E246781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68F6FBF7-9B32-4E32-9735-CA446E246781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68F6FBF7-9B32-4E32-9735-CA446E246781}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9836BC94-053B-4780-AAE5-C1C7EA1038FA} = {60095E0D-9505-4FD1-A814-D9C5EC0595E4}
 		{FDB18F93-68A6-4155-87E7-06EC25DFF6EB} = {24EA2AE3-BA9D-4574-AD0A-35C2517FE42A}
 		{2CD83924-8480-4732-BF44-2BE8DE1ABAA4} = {730064C4-A3F6-4C37-BD73-671C6786FA93}
 		{34E777F4-E0B3-4928-B3CD-BD5EAA6FB325} = {1D284CA1-7EB9-446E-821E-B6ECF079C2DF}

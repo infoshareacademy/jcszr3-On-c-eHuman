@@ -1633,6 +1633,9 @@
       "TimeTrackingSystem.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.Extensions.Identity.Stores": "3.1.18"
+        },
         "compile": {
           "bin/placeholder/TimeTrackingSystem.Domain.dll": {}
         },

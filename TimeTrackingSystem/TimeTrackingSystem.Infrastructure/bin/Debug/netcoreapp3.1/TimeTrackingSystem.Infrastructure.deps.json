@@ -1143,6 +1143,9 @@
         }
       },
       "TimeTrackingSystem.Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Identity.Stores": "5.0.9"
+        },
         "runtime": {
           "TimeTrackingSystem.Domain.dll": {}
         }
