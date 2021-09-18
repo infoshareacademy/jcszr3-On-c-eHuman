@@ -13,6 +13,7 @@ namespace TimeTrackingSystem.Domain.Model
     {
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
+        public string Full_Name { get; set; }
         public string Status { get; set; }
         public byte[] PhotoProfile { get; set; }
         public virtual ICollection<TimeSheet> TimeSheets { get; set; }

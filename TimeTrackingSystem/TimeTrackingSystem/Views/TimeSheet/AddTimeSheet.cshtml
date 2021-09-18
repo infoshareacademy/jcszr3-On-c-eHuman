@@ -13,11 +13,7 @@
         <form asp-action="AddTimeSheet">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" class="form-control" />
-            <div class="form-group">
-                <label asp-for="AccountId" class="control-label"></label>
-                <input asp-for="AccountId" class="form-control" />
-                <span asp-validation-for="AccountId" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="ApplicationUserId" class="form-control" />
             <div class="form-group">
                 <label asp-for="ActivityId" class="control-label"></label>
                 <input asp-for="ActivityId" class="form-control" />

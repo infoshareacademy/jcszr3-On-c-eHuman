@@ -32,34 +32,31 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
         
         public int AddTimeSheet(TimeSheet timeSheet)
         {
-            //_context.TimeSheets.Add(timeSheet);
-            //_context.SaveChanges();
-            return default;
+            _context.TimeSheets.Add(timeSheet);
+            _context.SaveChanges();
+            return timeSheet.Id;
         }
 
-        public IQueryable<TimeSheet> GetTimeSheetsByEmployeeId(int accountId)
+        public IQueryable<TimeSheet> GetTimeSheetsByEmployeeId(string accountId)
         {
-            //var timesheets = _context.TimeSheets.Where(i => i.AccountId == accountId);
-            return default;
+            var timesheets = _context.TimeSheets.Where(i => i.ApplicationUserId == accountId);
+            return timesheets;
         }
 
-        public IQueryable<TimeSheetAccountDTO> GetAllTimeSheets()
+        public IQueryable<TimeSheetAccountDTO> GetAllTimeSheets(string ApplicationUserId)
         {
-            
             var timesheetAccount = from v in _context.TimeSheets
                 join si in _context.ApplicationUsers on v.ApplicationUserId equals si.Id into loj
                 from rs in loj.DefaultIfEmpty()
-
-                select new TimeSheetAccountDTO() { ApplicationUser = rs, TimeSheet = v };
-
+                                   where rs.Id == ApplicationUserId
+                                   select new TimeSheetAccountDTO() { ApplicationUser = rs, TimeSheet = v };
             return timesheetAccount;
         }
 
         public TimeSheet GetTimeSheetDetails(int timesheetId)
         {
-            //var timesheet = _context.TimeSheets.FirstOrDefault(i => i.Id == timesheetId);
-            
-            return default;
+            var timesheet = _context.TimeSheets.FirstOrDefault(i => i.Id == timesheetId);
+            return timesheet;
         }
 
         public void UpdateTimeSheet(TimeSheet timesheet)

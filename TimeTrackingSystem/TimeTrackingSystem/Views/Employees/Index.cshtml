@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TimeTrackingSystem.Application.ViewModels.ListOfEmployeesViewModel>
+﻿@model TimeTrackingSystem.Application.ViewModels.ListOfEmployeesViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -6,46 +6,44 @@
 
 <h1>Index</h1>
 
+<p>
+    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Create New</a>
+</p>
+<form asp-aciton="Index" asp-controller="Employees" method="post">
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CurrentPage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PageSize)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SearchString)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Count)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrentPage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PageSize)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SearchString)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Count)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Full name
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Employees)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Full_Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditEmployee", new { id = item.Id }) |
+                            @Html.ActionLink(item.Full_Name, "ViewEmployee", new { ApplicationUserId = item.Id }) |
+                            @Html.ActionLink("Delete", "RemoveEmployee", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+</form>
+

@@ -20,7 +20,7 @@ namespace TimeTrackingSystem.Application.Services
             _mapper = mapper;
         }
 
-        public NewEmployeeViewModel EmployeeForEdit(int id)
+        public NewEmployeeViewModel EmployeeForEdit(string id)
         {
             var employee = _employeeRepo.GetEmployeeDetails(id);
             var employeeVM = _mapper.Map<NewEmployeeViewModel>(employee);
@@ -33,25 +33,18 @@ namespace TimeTrackingSystem.Application.Services
         //    _employeeRepo.UpdateEmployee(employee); 
         //}
         
-        public ListOfEmployeesViewModel GetAllEmployees(int pageSize, int pageNo, string searchBy)
+        public ListOfEmployeesViewModel GetAllEmployees()
         {
-            var employees = _employeeRepo.GetAllActiveEmployees().Where(p => p.Email.Contains(searchBy)) //searching
+            var employees = _employeeRepo.GetAllActiveEmployees()//searching
                 .ProjectTo<EmployeeDetailsViewModel>(_mapper.ConfigurationProvider).ToList(); //list of objects
-
-            var employeesToShow = employees.Skip(pageSize * (pageNo - 1)).Take(pageSize).ToList(); //pagination
-
             var employeesList = new ListOfEmployeesViewModel()
             {
-                PageSize = pageSize,
-                CurrentPage = pageNo,
-                SearchString = searchBy,
-                Employees = employeesToShow,
-                Count = employees.Count
+                Employees = employees
             };
             return employeesList;
         }
 
-        public EmployeeDetailsViewModel GetEmployeeDetails(int accountId)
+        public EmployeeDetailsViewModel GetEmployeeDetails(string accountId)
         {
             var employee = _employeeRepo.GetEmployeeDetails(accountId);
             var employeeVM = _mapper.Map<EmployeeDetailsViewModel>(employee); //single object

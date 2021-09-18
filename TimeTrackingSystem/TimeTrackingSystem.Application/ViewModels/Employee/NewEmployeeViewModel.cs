@@ -8,9 +8,9 @@ using TimeTrackingSystem.Domain.Model;
 
 namespace TimeTrackingSystem.Application.ViewModels.Employee
 {
-    public class NewEmployeeViewModel : IMapFrom<Account>
+    public class NewEmployeeViewModel : IMapFrom<ApplicationUser>
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
         public string Email { get; set; }
@@ -22,7 +22,7 @@ namespace TimeTrackingSystem.Application.ViewModels.Employee
         public void Mapping(Profile profile)
         {
             //<source, destination>
-            profile.CreateMap<NewEmployeeViewModel, Account>().ReverseMap();
+            profile.CreateMap<NewEmployeeViewModel, ApplicationUser>().ReverseMap();
         }
     }
     public class NewEmployeeValidation : AbstractValidator<NewEmployeeViewModel>

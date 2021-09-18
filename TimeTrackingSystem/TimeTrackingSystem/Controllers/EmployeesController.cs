@@ -1,37 +1,43 @@
 ﻿using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TimeTrackingSystem.Application.Interfaces;
 using TimeTrackingSystem.Application.ViewModels.Employee;
+using TimeTrackingSystem.Domain.Model;
 
 namespace TimeTrackingSystem.Controllers
 {
+    [Authorize]
     public class EmployeesController : Controller
     {
         private readonly IEmployeeService _employeeService;
-        public EmployeesController(IEmployeeService employeeService)
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        public EmployeesController(IEmployeeService employeeService,
+        SignInManager<ApplicationUser> signInManager,
+            UserManager<ApplicationUser> userManager)
         {
             _employeeService = employeeService;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
         [HttpGet]
         public IActionResult Index()
         {
-            var model = _employeeService.GetAllEmployees(5, 1, "");
+            var model = _employeeService.GetAllEmployees();
             return View(model);
         }
         
         [HttpPost]
-        public IActionResult Index(int pageSize, int? pageNo, string searchBy)
+        public IActionResult Index(string searchBy)
         {
-            if (!pageNo.HasValue)
-            {
-                pageNo = 1;
-            }
-
             if (searchBy is null)
             {
                 searchBy = String.Empty;
             }
-            var model = _employeeService.GetAllEmployees(pageSize, pageNo.Value, searchBy);
+            var model = _employeeService.GetAllEmployees();
             return View(model);
         }
 
@@ -49,7 +55,7 @@ namespace TimeTrackingSystem.Controllers
         //}
 
         //[HttpGet]
-        //public IActionResult EditEmployee(int id)
+        //public IActionResult EditEmployee(string id)
         //{
         //    var employee = _employeeService.EmployeeForEdit(id);
         //    return View(employee);
@@ -57,9 +63,9 @@ namespace TimeTrackingSystem.Controllers
         //[HttpPost]
         //public IActionResult EditEmployee(NewEmployeeViewModel model)
         //{
-        //    _employeeService.UpdateEmployee(model);
-        //    return RedirectToAction("ViewEmployee", new { accountId = model.Id });
-        //    //View(model);
+        //    //_employeeService.UpdateEmployee(model);
+        //    //return RedirectToAction("ViewEmployee", new { accountId = model.Id });
+        //    ////View(model);
         //    //RedirectToAction("ViewEmployee", new { accountId = id });
         //}
 
@@ -69,9 +75,9 @@ namespace TimeTrackingSystem.Controllers
         //    _employeeService.RemoveEmployee(id);
         //    return RedirectToAction("Index");
         //}
-        public IActionResult ViewEmployee(int accountId)
+        public async Task<IActionResult> ViewEmployee(string ApplicationUserId)
         {
-            var employeeModel = _employeeService.GetEmployeeDetails(accountId);
+            var employeeModel = _employeeService.GetEmployeeDetails(ApplicationUserId);
             return View(employeeModel);
         }
     }

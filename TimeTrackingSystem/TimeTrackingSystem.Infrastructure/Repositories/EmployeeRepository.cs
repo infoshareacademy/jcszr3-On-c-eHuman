@@ -15,7 +15,7 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
             _context = context;
         }
 
-        public void DeleteEmployee(int id)
+        public void DeleteEmployee(string id)
         {
             var account = _context.ApplicationUsers.Find(id);
             if (account != null)
@@ -25,15 +25,15 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
             }
         }
 
-        public IQueryable<Account> GetAllActiveEmployees()
+        public IQueryable<ApplicationUser> GetAllActiveEmployees()
         {
-            //var accounts = _context.ApplicationUsers.Where(i => i.IsEnable);
-            return default;
+            var accounts = _context.ApplicationUsers;
+            return accounts;
         }
-        public ApplicationUser GetEmployeeDetails(int accountId)
+        public ApplicationUser GetEmployeeDetails(string ApplicationUserId)
         {
-            //var account = _context.ApplicationUsers.FirstOrDefault(i => i.Id == accountId);
-            return default;
+            var account = _context.ApplicationUsers.FirstOrDefault(i => i.Id == ApplicationUserId);
+            return account;
         }
 
         public void UpdateEmployee(ApplicationUser employee)

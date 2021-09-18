@@ -9,8 +9,8 @@ namespace TimeTrackingSystem.Application.ViewModels
 {
     public class EmployeeDetailsViewModel : IMapFrom<ApplicationUser>
     {
-        public int Id { get; set; }
-        public string Employee_FullName { get; set; }
+        public string Id { get; set; }
+        public string Full_Name { get; set; }
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
         public string Email { get; set; }
@@ -21,7 +21,7 @@ namespace TimeTrackingSystem.Application.ViewModels
         public void Mapping(Profile profile)
         {
             profile.CreateMap<ApplicationUser, EmployeeDetailsViewModel>()
-                .ForMember(s => s.Employee_FullName, opt => opt.MapFrom(d => d.First_Name + " " + d.Last_Name));   
+                .ForMember(s => s.Full_Name, opt => opt.MapFrom(d => d.First_Name + " " + d.Last_Name));   
         }
     }
 }

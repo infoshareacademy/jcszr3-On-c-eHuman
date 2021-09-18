@@ -8,9 +8,9 @@ namespace TimeTrackingSystem.Domain.Interfaces
 {
     public interface IEmployeeRepository
     {
-        void DeleteEmployee(int id);
-        IQueryable<Account> GetAllActiveEmployees();
-        ApplicationUser GetEmployeeDetails(int accountId);
+        void DeleteEmployee(string id);
+        IQueryable<ApplicationUser> GetAllActiveEmployees();
+        ApplicationUser GetEmployeeDetails(string accountId);
         void UpdateEmployee(ApplicationUser employee);
     }
 }

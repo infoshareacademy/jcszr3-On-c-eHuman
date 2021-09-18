@@ -8,9 +8,9 @@ namespace TimeTrackingSystem.Application.Interfaces
 {
     public interface IEmployeeService
     {
-        ListOfEmployeesViewModel GetAllEmployees(int pageSize, int pageNo, string searchBy);
-        EmployeeDetailsViewModel GetEmployeeDetails(int accountId);
-        NewEmployeeViewModel EmployeeForEdit(int id);
+        ListOfEmployeesViewModel GetAllEmployees();
+        EmployeeDetailsViewModel GetEmployeeDetails(string accountId);
+        NewEmployeeViewModel EmployeeForEdit(string id);
         //void UpdateEmployee(NewEmployeeViewModel model);
     }
 }
