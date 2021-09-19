@@ -4,54 +4,65 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using TimeTrackingSystem.Application.Interfaces;
 using TimeTrackingSystem.Application.ViewModels.TimeSheet;
 using TimeTrackingSystem.Domain.Interfaces;
+using TimeTrackingSystem.Domain.Model;
 
 namespace TimeTrackingSystem.Controllers
 {
+    [Authorize]
     public class TimeSheetController : Controller
         {
             private readonly ITimeSheetService _timeSheetService;
-            public TimeSheetController(ITimeSheetService timeSheetService)
+            private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+
+        public TimeSheetController(ITimeSheetService timeSheetService,
+            SignInManager<ApplicationUser> signInManager,
+            UserManager<ApplicationUser> userManager)
             {
                 _timeSheetService = timeSheetService;
-            }
+                _userManager = userManager;
+                _signInManager = signInManager;
+        }
             [HttpGet]
-            public IActionResult Index()
+            public async Task<IActionResult> Index()
             {
-                var model = _timeSheetService.GetAllTimeSheets(2, 1);
+                var user = await _userManager.GetUserAsync(User);
+            var model = _timeSheetService.GetAllTimeSheets(user.Id);
                 return View(model);
             }
 
             [HttpPost]
-            public IActionResult Index(int pageSize, int? pageNo, DateTime searchBy)
+            public async Task<IActionResult> Index(DateTime searchBy)
             {
-                if (!pageNo.HasValue)
-                {
-                    pageNo = 1;
-                }
-
-                var model = _timeSheetService.GetAllTimeSheets(pageSize, pageNo.Value);
-                return View(model);
+                var user = await _userManager.GetUserAsync(User);
+            var model = _timeSheetService.GetAllTimeSheets(user.Id); 
+            return View(model);
             }
 
             [HttpGet]
-            public IActionResult AddTimeSheet()
+            public async Task<IActionResult> AddTimeSheet()
             {
-                return View(new NewTimeSheetViewModel());
+                var user = await _userManager.GetUserAsync(User);
+                var timeSheet = new NewTimeSheetViewModel();
+                timeSheet.ApplicationUserId = user.Id;
+            return View(timeSheet);
             }
 
             [HttpPost]
-            public IActionResult AddTimeSheet(NewTimeSheetViewModel model)
+            public async Task<IActionResult> AddTimeSheet(NewTimeSheetViewModel model)
             {
                 var id = _timeSheetService.AddTimeSheet(model);
-                return RedirectToAction("ViewTimeSheet", new { id = id });
+                return RedirectToAction("Index");
             }
 
             [HttpGet]
             public IActionResult EditTimeSheet(int id)
-        {
+            {
                 var employee = _timeSheetService.TimeSheetForEdit(id);
                 return View(employee);
             }

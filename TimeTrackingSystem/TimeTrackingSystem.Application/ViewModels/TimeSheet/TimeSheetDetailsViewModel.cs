@@ -10,7 +10,7 @@ namespace TimeTrackingSystem.Application.ViewModels.TimeSheet
     public class TimeSheetDetailsViewModel : IMapFrom<Domain.Model.TimeSheet>
     {
         public int Id { get; set; }
-        public int AccountId { get; set; }
+        public string ApplicationUserId { get; set; }
         public int ActivityId { get; set; }
         public DateTime Date { get; set; }
         public DateTime Time_from { get; set; }

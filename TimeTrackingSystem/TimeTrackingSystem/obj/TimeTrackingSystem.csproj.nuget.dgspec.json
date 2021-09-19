@@ -76,13 +76,13 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[3.1.18, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[3.1.18, )"
             }
           },
           "imports": [
@@ -146,6 +146,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[3.1.18, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -214,21 +220,29 @@
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[3.1.18, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.18, )"
+            },
+            "Microsoft.Bcl.AsyncInterfaces": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[3.1.18, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[3.1.18, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[3.1.18, )"
             }
           },
           "imports": [
@@ -271,18 +285,21 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
               "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Application\\TimeTrackingSystem.Application.csproj": {
                 "projectPath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Application\\TimeTrackingSystem.Application.csproj"
+              },
+              "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj": {
+                "projectPath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj"
               },
               "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\TimeTrackingSystem.Infrastructure.csproj": {
                 "projectPath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\TimeTrackingSystem.Infrastructure.csproj"
@@ -297,34 +314,34 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[3.1.18, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[3.1.18, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[3.1.18, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[3.1.18, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[3.1.18, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[3.1.5, )"
             }
           },
           "imports": [

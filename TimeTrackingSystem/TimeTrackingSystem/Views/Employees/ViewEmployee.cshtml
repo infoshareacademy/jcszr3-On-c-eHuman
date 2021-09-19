@@ -4,23 +4,17 @@
     ViewData["Title"] = "ViewEmployee";
 }
 
-<h1>@Html.DisplayFor(model => model.Employee_FullName)</h1>
+<h1>ViewEmployee</h1>
 
 <div>
-    <h4>@Html.DisplayFor(model => model.Employee_FullName)</h4>
+    <h4>EmployeeDetailsViewModel</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
+            @Html.DisplayNameFor(model => model.Full_Name)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Employee_FullName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Employee_FullName)
+            @Html.DisplayFor(model => model.Full_Name)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.First_Name)
@@ -41,18 +35,6 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Role)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Role)
-        </dd>
-        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.PhotoProfile)
         </dt>
         <dd class = "col-sm-10">
@@ -61,6 +43,6 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "EditEmployee", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     <a asp-action="Index">Back to List</a>
 </div>

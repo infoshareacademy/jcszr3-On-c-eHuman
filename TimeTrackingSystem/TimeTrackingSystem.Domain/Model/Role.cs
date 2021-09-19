@@ -9,6 +9,6 @@ namespace TimeTrackingSystem.Domain.Model
         public int Id { get; set; }
         public string Role_name { get; set; }
 
-        public virtual ICollection<Account> Accounts { get; set; }
+        public virtual ICollection<ApplicationUser> Employees { get; set; }
     }
 }

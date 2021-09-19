@@ -10,8 +10,8 @@ namespace TimeTrackingSystem.Domain.Interfaces
     {
         void DeleteTimeSheet(int timeSheetId);
         int AddTimeSheet(TimeSheet timeSheet);
-        IQueryable<TimeSheet> GetTimeSheetsByEmployeeId(int accountId);
-        IQueryable<TimeSheetAccountDTO> GetAllTimeSheets();
+        IQueryable<TimeSheet> GetTimeSheetsByEmployeeId(string accountId);
+        IQueryable<TimeSheetAccountDTO> GetAllTimeSheets(string ApplicationUserId);
         TimeSheet GetTimeSheetDetails(int TimeSheetId);
         void UpdateTimeSheet(TimeSheet timesheet);
     }

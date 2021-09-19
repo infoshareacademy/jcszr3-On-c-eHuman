@@ -10,7 +10,7 @@ namespace TimeTrackingSystem.Application.ViewModels.TimeSheet
     public class TimeSheetAccountDTOViewModel : IMapFrom<TimeSheetAccountDTO>
     {
        public TimeSheetDetailsViewModel TimeSheet{ get; set; }
-       public EmployeeDetailsViewModel Employee { get; set; }
+       public EmployeeDetailsViewModel ApplicationUser { get; set; }
 
        public void Mapping(Profile profile)
        {

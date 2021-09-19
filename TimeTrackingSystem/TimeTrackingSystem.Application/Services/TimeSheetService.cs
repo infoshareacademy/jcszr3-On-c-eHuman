@@ -41,19 +41,14 @@ namespace TimeTrackingSystem.Application.Services
             _timeSheetRepo.UpdateTimeSheet(timesheet);
         }
 
-        public ListOfTimeSheetsViewModel GetAllTimeSheets(int pageSize, int pageNo)
+        public ListOfTimeSheetsViewModel GetAllTimeSheets(string Id)
         {
-            var timesheets = _timeSheetRepo.GetAllTimeSheets()//searching
+            var timesheets = _timeSheetRepo.GetAllTimeSheets(Id)//searching
                 .ProjectTo<TimeSheetAccountDTOViewModel>(_mapper.ConfigurationProvider).ToList(); //list of objects
-
-            var timeSheetsToShow = timesheets.Skip(pageSize * (pageNo - 1)).Take(pageSize).ToList(); //pagination
 
             var employeesList = new ListOfTimeSheetsViewModel()
             {
-                PageSize = pageSize,
-                CurrentPage = pageNo,
-                TimeSheets = timeSheetsToShow,
-                Count = timesheets.Count
+                TimeSheets = timesheets,
             };
             return employeesList;
         }

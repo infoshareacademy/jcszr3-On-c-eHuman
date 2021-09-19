@@ -15,41 +15,28 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
             _context = context;
         }
 
-        public void DeleteEmployee(int accountId)
+        public void DeleteEmployee(string id)
         {
-            var account = _context.Accounts.Find(accountId);
+            var account = _context.ApplicationUsers.Find(id);
             if (account != null)
             {
-                _context.Accounts.Remove(account);
+                _context.ApplicationUsers.Remove(account);
                 _context.SaveChanges();
             }
         }
 
-        public int AddEmployee(Account account)
+        public IQueryable<ApplicationUser> GetAllActiveEmployees()
         {
-            _context.Accounts.Add(account);
-            _context.SaveChanges();
-            return account.Id;
-        }
-
-        public IQueryable<Account> GetEmployeesByRoleId(int roleId)
-        {
-            var accounts = _context.Accounts.Where(i => i.RoleId == roleId);
+            var accounts = _context.ApplicationUsers;
             return accounts;
         }
-
-        public IQueryable<Account> GetAllActiveEmployees()
+        public ApplicationUser GetEmployeeDetails(string ApplicationUserId)
         {
-            var accounts = _context.Accounts.Where(i => i.IsEnable);
-            return accounts;
-        }
-        public Account GetEmployeeDetails(int accountId)
-        {
-            var account = _context.Accounts.FirstOrDefault(i => i.Id == accountId);
+            var account = _context.ApplicationUsers.FirstOrDefault(i => i.Id == ApplicationUserId);
             return account;
         }
 
-        public void UpdateEmployee(Account employee)
+        public void UpdateEmployee(ApplicationUser employee)
         {
             _context.Attach(employee);
             _context.Entry(employee).Property("Email").IsModified = true;

@@ -16,6 +16,7 @@ using FluentValidation.AspNetCore;
 using TimeTrackingSystem.Application;
 using TimeTrackingSystem.Application.ViewModels.Employee;
 using TimeTrackingSystem.Application.ViewModels.TimeSheet;
+using TimeTrackingSystem.Domain.Model;
 using TimeTrackingSystem.Infrastructure;
 
 namespace TimeTrackingSystem
@@ -33,13 +34,16 @@ namespace TimeTrackingSystem
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<Context>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<Context>();
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<Context>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders();
 
             services.AddApplication();
             services.AddInfrastructure();
+            services.AddMvc();
 
             services.AddControllersWithViews().AddFluentValidation(fv => fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false);
             services.AddRazorPages();
