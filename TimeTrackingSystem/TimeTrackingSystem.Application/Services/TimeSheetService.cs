@@ -18,19 +18,19 @@ namespace TimeTrackingSystem.Application.Services
             _mapper = mapper;
         }
 
-        public int Add(NewTimeSheetViewModel timesheet)
+        public int Add(TimeSheetDetailsViewModel timesheet)
         {
             var timeSh = _mapper.Map<TimeSheet>(timesheet);
             var id = _timeSheetRepo.Add(timeSh);
             return id;
         }
-        public NewTimeSheetViewModel Edit(int id)
+        public TimeSheetDetailsViewModel Edit(int id)
         {
             var timesheet = _timeSheetRepo.Get(id);
-            var timesheetVM = _mapper.Map<NewTimeSheetViewModel>(timesheet);
+            var timesheetVM = _mapper.Map<TimeSheetDetailsViewModel>(timesheet);
             return timesheetVM;
         }
-        public void Update(NewTimeSheetViewModel model)
+        public void Update(TimeSheetDetailsViewModel model)
         {
             var timesheet = _mapper.Map<TimeSheet>(model);
             _timeSheetRepo.Update(timesheet);
@@ -47,7 +47,7 @@ namespace TimeTrackingSystem.Application.Services
             };
             return employeesList;
         }
-
+        
         public TimeSheetDetailsViewModel Get(int timesheetId)
         {
             var timesheet = _timeSheetRepo.Get(timesheetId);

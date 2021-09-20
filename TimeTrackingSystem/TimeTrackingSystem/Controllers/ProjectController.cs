@@ -4,23 +4,23 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 using TimeTrackingSystem.Application.Interfaces;
-using TimeTrackingSystem.Application.ViewModels.TimeSheet;
+using TimeTrackingSystem.Application.ViewModels.Project;
 using TimeTrackingSystem.Domain.Model;
 
 namespace TimeTrackingSystem.Controllers
 {
     [Authorize]
-    public class TimeSheetController : Controller
+    public class ProjectController : Controller
     {
-        private readonly ITimeSheetService _timeSheetService;
+        private readonly IProjectService _projectService;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public TimeSheetController(ITimeSheetService timeSheetService,
+        public ProjectController(IProjectService ProjectService,
             SignInManager<ApplicationUser> signInManager,
             UserManager<ApplicationUser> userManager)
         {
-            _timeSheetService = timeSheetService;
+            _projectService = ProjectService;
             _userManager = userManager;
             _signInManager = signInManager;
         }
@@ -29,7 +29,7 @@ namespace TimeTrackingSystem.Controllers
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.GetUserAsync(User);
-            var model = _timeSheetService.GetAll(user.Id);
+            var model = _projectService.GetAll(user.Id);
             return View(model);
         }
 
@@ -37,51 +37,51 @@ namespace TimeTrackingSystem.Controllers
         public async Task<IActionResult> Index(DateTime searchBy)
         {
             var user = await _userManager.GetUserAsync(User);
-            var model = _timeSheetService.GetAll(user.Id);
+            var model = _projectService.GetAll(user.Id);
             return View(model);
         }
 
         [HttpGet]
-        public async Task<IActionResult> AddTimeSheet()
+        public async Task<IActionResult> AddProject()
         {
             var user = await _userManager.GetUserAsync(User);
-            var timeSheet = new TimeSheetDetailsViewModel();
-            timeSheet.ApplicationUserId = user.Id;
-            return View(timeSheet);
+            var project = new ProjectDetailsViewModel();
+            project.ApplicationUserId = user.Id;
+            return View(project);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddTimeSheet(TimeSheetDetailsViewModel model)
+        public async Task<IActionResult> AddProject(ProjectDetailsViewModel model)
         {
-            var id = _timeSheetService.Add(model);
+            var id = _projectService.Add(model);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public IActionResult EditTimeSheet(int id)
+        public IActionResult EditProject(int id)
         {
-            var employee = _timeSheetService.Edit(id);
+            var employee = _projectService.Edit(id);
             return View(employee);
         }
 
         [HttpPost]
-        public IActionResult EditTimeSheet(TimeSheetDetailsViewModel model)
+        public IActionResult EditProject(ProjectDetailsViewModel model)
         {
-            _timeSheetService.Update(model);
-            return RedirectToAction("ViewTimeSheet", new { id = model.Id });
+            _projectService.Update(model);
+            return RedirectToAction("ViewProject", new { id = model.Id });
         }
 
         [HttpGet]
-        public IActionResult RemoveTimeSheet(int id)
+        public IActionResult RemoveProject(int id)
         {
-            _timeSheetService.Delete(id);
+            _projectService.Delete(id);
             return RedirectToAction("Index");
         }
 
-        public IActionResult ViewTimeSheet(int id)
+        public IActionResult ViewProject(int id)
         {
-            var timesheetModel = _timeSheetService.Get(id);
-            return View(timesheetModel);
+            var projectModel = _projectService.Get(id);
+            return View(projectModel);
         }
     }
 }

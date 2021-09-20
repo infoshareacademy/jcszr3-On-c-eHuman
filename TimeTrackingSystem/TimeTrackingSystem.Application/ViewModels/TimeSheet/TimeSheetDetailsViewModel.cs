@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using System;
 using TimeTrackingSystem.Application.Mapping;
 
@@ -14,10 +15,17 @@ namespace TimeTrackingSystem.Application.ViewModels.TimeSheet
         public DateTime Time_to { get; set; }
         public string Comments { get; set; }
         public DateTime Date_submitted { get; set; }
-
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Domain.Model.TimeSheet, TimeSheetDetailsViewModel>();
+            //<source, destination>
+            profile.CreateMap<TimeSheetDetailsViewModel, Domain.Model.TimeSheet>().ReverseMap();
+        }
+    }
+    public class NewTimeSheetValidation : AbstractValidator<TimeSheetDetailsViewModel>
+    {
+        public NewTimeSheetValidation()
+        {
+            RuleFor(x => x.Comments).Length(3, 50);
         }
     }
 }

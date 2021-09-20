@@ -11,6 +11,7 @@ namespace TimeTrackingSystem.Application
         {
             services.AddTransient<IEmployeeService, EmployeeService>();
             services.AddTransient<ITimeSheetService, TimeSheetService>();
+            services.AddTransient<IProjectService, ProjectService>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;
         }
