@@ -1,10 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 using TimeTrackingSystem.Application.Interfaces;
-using TimeTrackingSystem.Application.ViewModels.Employee;
 using TimeTrackingSystem.Domain.Model;
 
 namespace TimeTrackingSystem.Controllers
@@ -26,7 +25,7 @@ namespace TimeTrackingSystem.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var model = _employeeService.GetAllEmployees();
+            var model = _employeeService.GetAll();
             return View(model);
         }
         
@@ -37,47 +36,13 @@ namespace TimeTrackingSystem.Controllers
             {
                 searchBy = String.Empty;
             }
-            var model = _employeeService.GetAllEmployees();
+            var model = _employeeService.GetAll();
             return View(model);
         }
 
-        //[HttpGet]
-        //public IActionResult AddEmployee()
-        //{
-        //    return View(new NewEmployeeViewModel());
-        //}
-
-        //[HttpPost]
-        //public IActionResult AddEmployee(NewEmployeeViewModel model)
-        //{
-        //    var id = _employeeService.AddEmployee(model);
-        //    return RedirectToAction("ViewEmployee", new { accountId = id });
-        //}
-
-        //[HttpGet]
-        //public IActionResult EditEmployee(string id)
-        //{
-        //    var employee = _employeeService.EmployeeForEdit(id);
-        //    return View(employee);
-        //}
-        //[HttpPost]
-        //public IActionResult EditEmployee(NewEmployeeViewModel model)
-        //{
-        //    //_employeeService.UpdateEmployee(model);
-        //    //return RedirectToAction("ViewEmployee", new { accountId = model.Id });
-        //    ////View(model);
-        //    //RedirectToAction("ViewEmployee", new { accountId = id });
-        //}
-
-        //[HttpGet]
-        //public IActionResult RemoveEmployee(int id)
-        //{
-        //    _employeeService.RemoveEmployee(id);
-        //    return RedirectToAction("Index");
-        //}
-        public async Task<IActionResult> ViewEmployee(string ApplicationUserId)
+        public async Task<IActionResult> View(string ApplicationUserId)
         {
-            var employeeModel = _employeeService.GetEmployeeDetails(ApplicationUserId);
+            var employeeModel = _employeeService.Get(ApplicationUserId);
             return View(employeeModel);
         }
     }

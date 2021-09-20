@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using AutoMapper;
+﻿using AutoMapper;
 using FluentValidation;
-using FluentValidation.Validators;
+using System;
 using TimeTrackingSystem.Application.Mapping;
-using TimeTrackingSystem.Application.ViewModels.Employee;
-using TimeTrackingSystem.Domain.Model;
 
 namespace TimeTrackingSystem.Application.ViewModels.TimeSheet
 {

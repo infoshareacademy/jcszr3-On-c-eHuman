@@ -36,7 +36,7 @@
                         </td>
                         <td>
                             @Html.ActionLink("Edit", "EditEmployee", new { id = item.Id }) |
-                            @Html.ActionLink(item.Full_Name, "ViewEmployee", new { ApplicationUserId = item.Id }) |
+                            @Html.ActionLink(item.Full_Name, "View", new { ApplicationUserId = item.Id }) |
                             @Html.ActionLink("Delete", "RemoveEmployee", new { id = item.Id })
                         </td>
                     </tr>

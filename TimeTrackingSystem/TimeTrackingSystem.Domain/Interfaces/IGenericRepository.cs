@@ -11,9 +11,7 @@ namespace TimeTrackingSystem.Domain.Interfaces
     {
         T GetI(int id);
         T GetS(string id);
-        IQueryable<T> GetAll();
-        int AddI(T entity);
-        string AddS(T entity);
+        int Add(T entity);
         void Delete(int entityId);
         void Edit(T entity);
         void Update(T entity);

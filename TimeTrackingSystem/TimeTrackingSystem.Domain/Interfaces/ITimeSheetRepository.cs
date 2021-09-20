@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using TimeTrackingSystem.Domain.Model;
 
 namespace TimeTrackingSystem.Domain.Interfaces
 {
     public interface ITimeSheetRepository
     {
-        void DeleteTimeSheet(int timeSheetId);
-        int AddTimeSheet(TimeSheet timeSheet);
-        IQueryable<TimeSheet> GetTimeSheetsByEmployeeId(string accountId);
-        IQueryable<TimeSheetAccountDTO> GetAllTimeSheets(string ApplicationUserId);
-        TimeSheet GetTimeSheetDetails(int TimeSheetId);
-        void UpdateTimeSheet(TimeSheet timesheet);
+        void Delete(int entityId);
+        int Add(TimeSheet entity);
+        TimeSheet Get(int entityId);
+        IQueryable<TimeSheetAccount> GetAll(string ApplicationUserId);
+        void Update(TimeSheet entity);
     }
 }

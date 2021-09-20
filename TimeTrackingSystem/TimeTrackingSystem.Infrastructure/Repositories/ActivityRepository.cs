@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using TimeTrackingSystem.Domain.Interfaces;
 using TimeTrackingSystem.Domain.Model;
 
@@ -10,12 +7,13 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
     public class ActivityRepository : IActivityRepository
     {
         private readonly Context _context;
+
         public ActivityRepository(Context context)
         {
             _context = context;
         }
 
-        public void DeleteActivity(int activityId)
+        public void Delete(int activityId)
         {
             var activity = _context.Activities.Find(activityId);
             if (activity != null)
@@ -25,7 +23,7 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
             }
         }
 
-        public int AddActivity(Activity activity)
+        public int Add(Activity activity)
         {
             _context.Activities.Add(activity);
             _context.SaveChanges();
@@ -33,7 +31,7 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
         }
 
 
-        public Activity GetActivityById(int activityId)
+        public Activity Get(int activityId)
         {
             var activity = _context.Activities.FirstOrDefault(i => i.Id == activityId);
             return activity;

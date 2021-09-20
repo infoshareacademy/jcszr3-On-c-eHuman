@@ -1,8 +1,4 @@
-﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TimeTrackingSystem.Domain.Model;
+﻿using System.Collections.Generic;
 
 namespace TimeTrackingSystem.Application.ViewModels
 {

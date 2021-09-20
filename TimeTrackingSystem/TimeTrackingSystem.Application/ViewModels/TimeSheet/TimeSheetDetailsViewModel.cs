@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using AutoMapper;
+﻿using AutoMapper;
+using System;
 using TimeTrackingSystem.Application.Mapping;
-using TimeTrackingSystem.Domain.Model;
 
 namespace TimeTrackingSystem.Application.ViewModels.TimeSheet
 {

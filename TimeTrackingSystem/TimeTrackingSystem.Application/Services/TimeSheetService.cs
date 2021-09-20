@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using AutoMapper;
+﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using System.Linq;
 using TimeTrackingSystem.Application.Interfaces;
-using TimeTrackingSystem.Application.ViewModels;
 using TimeTrackingSystem.Application.ViewModels.TimeSheet;
 using TimeTrackingSystem.Domain.Interfaces;
 using TimeTrackingSystem.Domain.Model;
-using TimeTrackingSystem.Infrastructure.Repositories;
 
 namespace TimeTrackingSystem.Application.Services
 {
@@ -23,28 +18,28 @@ namespace TimeTrackingSystem.Application.Services
             _mapper = mapper;
         }
 
-        public int AddTimeSheet(NewTimeSheetViewModel timesheet)
+        public int Add(NewTimeSheetViewModel timesheet)
         {
             var timeSh = _mapper.Map<TimeSheet>(timesheet);
-            var id = _timeSheetRepo.AddTimeSheet(timeSh);
+            var id = _timeSheetRepo.Add(timeSh);
             return id;
         }
-        public NewTimeSheetViewModel TimeSheetForEdit(int id)
+        public NewTimeSheetViewModel Edit(int id)
         {
-            var timesheet = _timeSheetRepo.GetTimeSheetDetails(id);
+            var timesheet = _timeSheetRepo.Get(id);
             var timesheetVM = _mapper.Map<NewTimeSheetViewModel>(timesheet);
             return timesheetVM;
         }
-        public void UpdateTimeSheet(NewTimeSheetViewModel model)
+        public void Update(NewTimeSheetViewModel model)
         {
             var timesheet = _mapper.Map<TimeSheet>(model);
-            _timeSheetRepo.UpdateTimeSheet(timesheet);
+            _timeSheetRepo.Update(timesheet);
         }
 
-        public ListOfTimeSheetsViewModel GetAllTimeSheets(string Id)
+        public ListOfTimeSheetsViewModel GetAll(string Id)
         {
-            var timesheets = _timeSheetRepo.GetAllTimeSheets(Id)//searching
-                .ProjectTo<TimeSheetAccountDTOViewModel>(_mapper.ConfigurationProvider).ToList(); //list of objects
+            var timesheets = _timeSheetRepo.GetAll(Id)//searching
+                .ProjectTo<TimeSheetAccountViewModel>(_mapper.ConfigurationProvider).ToList(); //list of objects
 
             var employeesList = new ListOfTimeSheetsViewModel()
             {
@@ -53,16 +48,16 @@ namespace TimeTrackingSystem.Application.Services
             return employeesList;
         }
 
-        public TimeSheetDetailsViewModel GetTimeSheetDetails(int timesheetId)
+        public TimeSheetDetailsViewModel Get(int timesheetId)
         {
-            var timesheet = _timeSheetRepo.GetTimeSheetDetails(timesheetId);
+            var timesheet = _timeSheetRepo.Get(timesheetId);
             var timesheetVM = _mapper.Map<TimeSheetDetailsViewModel>(timesheet);
             return timesheetVM;
         }
 
-        public void RemoveTimeSheet(int id)
+        public void Delete(int id)
         {
-            _timeSheetRepo.DeleteTimeSheet(id);
+            _timeSheetRepo.Delete(id);
         }
     }
 }
