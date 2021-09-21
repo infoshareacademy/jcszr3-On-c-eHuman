@@ -47,12 +47,20 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
             return activity;
         }
 
-        public IQueryable<ActivityProject> GetAll(int projectId)
+        public IQueryable<ActivityProject> GetAll()
         {
             var ActivityProject = from v in _context.Activities
                                  join si in _context.Projects on v.ProjectId equals si.Id into loj
                                  from rs in loj.DefaultIfEmpty()
-                                 where rs.Id == projectId
+                                 select new ActivityProject { Project = rs, Activity = v };
+            return ActivityProject;
+        }
+        public IQueryable<ActivityProject> GetAll(int Id)
+        {
+            var ActivityProject = from v in _context.Activities
+                                 join si in _context.Projects on v.ProjectId equals si.Id into loj
+                                 from rs in loj.DefaultIfEmpty()
+                                  where rs.Id == Id
                                   select new ActivityProject { Project = rs, Activity = v };
             return ActivityProject;
         }

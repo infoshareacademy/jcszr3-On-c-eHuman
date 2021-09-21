@@ -7,7 +7,8 @@ namespace TimeTrackingSystem.Application.ViewModels.Activity
 {
     public class ActivityProjectViewModel : IMapFrom<ActivityProject>
     {
-       public ActivityDetailsViewModel Activity{ get; set; }
+        public int Id { get; set; }
+        public ActivityDetailsViewModel Activity{ get; set; }
        public ProjectDetailsViewModel Project { get; set; }
 
        public void Mapping(Profile profile)

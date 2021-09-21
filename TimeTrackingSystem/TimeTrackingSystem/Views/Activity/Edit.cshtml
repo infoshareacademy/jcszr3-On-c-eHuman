@@ -1,33 +1,27 @@
-﻿@model TimeTrackingSystem.Application.ViewModels.Project.ProjectDetailsViewModel
+﻿@model TimeTrackingSystem.Application.ViewModels.Activity.ActivityDetailsViewModel
 
 @{
-    ViewData["Title"] = "AddProject";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>AddProject</h1>
+<h1>Edit</h1>
 
-<h4>ProjectDetailsViewModel</h4>
+<h4>ActivityDetailsViewModel</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="AddProject">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" class="form-control" />
-            <input type="hidden" asp-for="ApplicationUserId" class="form-control" />
             <div class="form-group">
-                <label asp-for="Project_code" class="control-label"></label>
-                <input asp-for="Project_code" class="form-control" />
-                <span asp-validation-for="Project_code" class="text-danger"></span>
+                <label asp-for="Code" class="control-label"></label>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Location" class="control-label"></label>
-                <input asp-for="Location" class="form-control" />
-                <span asp-validation-for="Location" class="text-danger"></span>
+                <label asp-for="ProjectId" class="control-label"></label>
+                <input asp-for="ProjectId" class="form-control" />
+                <span asp-validation-for="ProjectId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Start_date" class="control-label"></label>
@@ -45,7 +39,7 @@
                 <span asp-validation-for="Other_details" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>

@@ -26,56 +26,50 @@ namespace TimeTrackingSystem.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public IActionResult Index(int Id)
         {
             var model = _activityService.GetAll(Id);
-            return View(model);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Index(DateTime searchBy)
-        {
-            var model = _activityService.GetAll(Id);
-            return View(model);
+            
+                return View(model);
         }
 
         [HttpGet]
-        public async Task<IActionResult> AddActivity()
+        public async Task<IActionResult> Add(int projectId)
         {
             var activity = new ActivityDetailsViewModel();
-            activity.ProjectId = Id;
+            activity.ProjectId = projectId;
             return View(activity);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddActivity(ActivityDetailsViewModel model)
+        public async Task<IActionResult> Add(ActivityDetailsViewModel model)
         {
             var id = _activityService.Add(model);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { Id = model.ProjectId });
         }
 
         [HttpGet]
-        public IActionResult EditActivity(int id)
+        public IActionResult Edit(int id)
         {
             var employee = _activityService.Edit(id);
             return View(employee);
         }
 
         [HttpPost]
-        public IActionResult EditActivity(ActivityDetailsViewModel model)
+        public IActionResult Edit(ActivityDetailsViewModel model)
         {
             _activityService.Update(model);
-            return RedirectToAction("ViewActivity", new { id = model.Id });
+            return RedirectToAction("View", new { id = model.Id });
         }
 
         [HttpGet]
-        public IActionResult RemoveActivity(int id)
+        public IActionResult Remove(int id)
         {
             _activityService.Delete(id);
             return RedirectToAction("Index");
         }
 
-        public IActionResult ViewActivity(int id)
+        public IActionResult View(int id)
         {
             var activityModel = _activityService.Get(id);
             return View(activityModel);

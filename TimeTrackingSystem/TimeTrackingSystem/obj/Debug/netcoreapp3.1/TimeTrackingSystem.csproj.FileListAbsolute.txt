@@ -387,3 +387,7 @@ C:\Users\DP\Documents\Project\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTracking
 C:\Users\DP\Documents\Project\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem\obj\Debug\netcoreapp3.1\TimeTrackingSystem.RazorAssemblyInfo.cache
 C:\Users\DP\Documents\Project\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem\obj\Debug\netcoreapp3.1\TimeTrackingSystem.RazorAssemblyInfo.cs
 C:\Users\DP\Documents\Project\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem\obj\Debug\netcoreapp3.1\TimeTrackingSystem.csproj.AssemblyReference.cache
+D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem\obj\Debug\netcoreapp3.1\Razor\Views\Activity\Index.cshtml.g.cs
+D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem\obj\Debug\netcoreapp3.1\Razor\Views\Activity\Add.cshtml.g.cs
+D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem\obj\Debug\netcoreapp3.1\Razor\Views\Activity\Edit.cshtml.g.cs
+D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem\obj\Debug\netcoreapp3.1\Razor\Views\Activity\View.cshtml.g.cs

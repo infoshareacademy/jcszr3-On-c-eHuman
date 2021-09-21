@@ -1,5 +1,4 @@
-﻿@model TimeTrackingSystem.Application.ViewModels.Project.ListOfProjectsViewModel
-
+﻿@model TimeTrackingSystem.Application.ViewModels.Activity.ListOfActivitiesViewModel
 @{
     ViewData["Title"] = "Index";
 }
@@ -7,33 +6,30 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="AddProject">Create New</a>
+    @Html.ActionLink("Create New", "Add", new { projectId = Model.Id})
 </p>
-<form asp-aciton="Index" asp-controller="Project" method="post">
+<form asp-aciton="Index" asp-controller="Activity" method="post">
     <div class="row">
         <table class="table">
             <thead>
                 <tr>
                     <th>
-                        Account full name
+                        Project name
                     </th>
                     <th>
-                        Id
+                        Activity Id
                     </th>
                     <th>
-                        Project code
+                        Project Id
                     </th>
                     <th>
-                        Name
+                        Activity code
                     </th>
                     <th>
-                        Location
+                        Time from
                     </th>
                     <th>
-                        Start date
-                    </th>
-                    <th>
-                        End date
+                        Time to
                     </th>
                     <th>
                         Other details
@@ -42,40 +38,34 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.Projects)
+                @foreach (var item in Model.Activities)
                 {
                 <tr>
                     <td>
-                        @Html.ActionLink(item.ApplicationUser.Full_Name, "View", "Employees", new { ApplicationUserId = item.ApplicationUser.Id })
-                        @*@Html.DisplayFor(modelItem => item.Employee.Employee_FullName)*@
+                        @Html.ActionLink(item.Project.Name, "ViewProject", "Project", new { ProjectId = item.Project.Id })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Activity.Id)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Project.Id)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Project.Project_code)
+                        @Html.DisplayFor(modelItem => item.Activity.Code)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Project.Name)
+                        @Html.DisplayFor(modelItem => item.Activity.Start_date.GetDateTimeFormats()[0])
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Project.Location)
+                        @Html.DisplayFor(modelItem => item.Activity.End_date.GetDateTimeFormats()[0])
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Project.Start_date.GetDateTimeFormats()[0])
+                        @Html.DisplayFor(modelItem => item.Activity.Other_details)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Project.End_date.GetDateTimeFormats()[0])
-                    </td>
-
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Project.Other_details)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "EditProject", new { id = item.Project.Id }) |
-                        @Html.ActionLink("Details", "ViewProject", new { id = item.Project.Id }) |
-                        @Html.ActionLink("Activities", "Index", "Activity", new { Id = item.Project.Id }) |
-                        @Html.ActionLink("Delete", "RemoveProject", new { id = item.Project.Id })
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Activity.Id }) |
+                        @Html.ActionLink("Details", "View", new { id = item.Activity.Id }) |
+                        @Html.ActionLink("Delete", "Remove", new { id = item.Activity.Id })
                     </td>
                 </tr>
                 }

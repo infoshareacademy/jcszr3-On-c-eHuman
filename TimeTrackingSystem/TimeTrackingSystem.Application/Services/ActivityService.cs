@@ -36,13 +36,25 @@ namespace TimeTrackingSystem.Application.Services
             _ActivityRepo.Update(Activity);
         }
 
-        public ListOfActivitiesViewModel GetAll(int Id)
+        public ListOfActivitiesViewModel GetAll()
         {
-            var Activities = _ActivityRepo.GetAll(Id)//searching
+            var Activities = _ActivityRepo.GetAll()//searching
                 .ProjectTo<ActivityProjectViewModel>(_mapper.ConfigurationProvider).ToList(); //list of objects
 
             var employeesList = new ListOfActivitiesViewModel()
             {
+                Activities = Activities,
+            };
+            return employeesList;
+        }
+        public ListOfActivitiesViewModel GetAll(int id)
+        {
+            var Activities = _ActivityRepo.GetAll(id)//searching
+                .ProjectTo<ActivityProjectViewModel>(_mapper.ConfigurationProvider).ToList(); //list of objects
+
+            var employeesList = new ListOfActivitiesViewModel()
+            {
+                Id = id,
                 Activities = Activities,
             };
             return employeesList;

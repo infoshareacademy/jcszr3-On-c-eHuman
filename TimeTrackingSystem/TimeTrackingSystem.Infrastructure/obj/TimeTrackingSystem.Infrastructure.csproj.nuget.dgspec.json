@@ -1,25 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\TimeTrackingSystem.Infrastructure.csproj": {}
+    "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\TimeTrackingSystem.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj": {
+    "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj",
+        "projectUniqueName": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj",
         "projectName": "TimeTrackingSystem.Domain",
-        "projectPath": "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj",
-        "packagesPath": "C:\\Users\\DP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\obj\\",
+        "projectPath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj",
+        "packagesPath": "C:\\Users\\9dani\\.nuget\\packages\\",
+        "outputPath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\DP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\9dani\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -64,26 +67,29 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\TimeTrackingSystem.Infrastructure.csproj": {
+    "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\TimeTrackingSystem.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\TimeTrackingSystem.Infrastructure.csproj",
+        "projectUniqueName": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\TimeTrackingSystem.Infrastructure.csproj",
         "projectName": "TimeTrackingSystem.Infrastructure",
-        "projectPath": "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\TimeTrackingSystem.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\DP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\obj\\",
+        "projectPath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\TimeTrackingSystem.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\9dani\\.nuget\\packages\\",
+        "outputPath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\DP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\9dani\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -96,8 +102,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj": {
-                "projectPath": "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj"
+              "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj": {
+                "projectPath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj"
               }
             }
           }
@@ -154,7 +160,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
