@@ -10,6 +10,7 @@ namespace TimeTrackingSystem.Domain.Model
         public string Full_Name { get; set; }
         public string Status { get; set; }
         public byte[] PhotoProfile { get; set; }
+        public virtual ICollection<Leave> Leaves { get; set; }
         public virtual ICollection<TimeSheet> TimeSheets { get; set; }
         public virtual ICollection<Project> Projects { get; set; }
 

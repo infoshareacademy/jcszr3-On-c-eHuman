@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TimeTrackingSystem.Infrastructure;
 
 namespace TimeTrackingSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20210921194503_leaves")]
+    partial class leaves
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -439,7 +441,6 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                     b.HasOne("TimeTrackingSystem.Domain.Model.Activity", "Activity")
                         .WithMany("TimeSheets")
                         .HasForeignKey("ActivityId")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TimeTrackingSystem.Domain.Model.ApplicationUser", "ApplicationUser")
