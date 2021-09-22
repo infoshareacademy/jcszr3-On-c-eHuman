@@ -201,6 +201,9 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                     b.Property<string>("First_Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Full_Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Last_Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -254,6 +257,35 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("TimeTrackingSystem.Domain.Model.Leave", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("End_date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Leave_type")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Other_details")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Start_date")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("Leaves");
                 });
 
             modelBuilder.Entity("TimeTrackingSystem.Domain.Model.Project", b =>
@@ -386,6 +418,13 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("TimeTrackingSystem.Domain.Model.Leave", b =>
+                {
+                    b.HasOne("TimeTrackingSystem.Domain.Model.ApplicationUser", "ApplicationUser")
+                        .WithMany("Leaves")
+                        .HasForeignKey("ApplicationUserId");
                 });
 
             modelBuilder.Entity("TimeTrackingSystem.Domain.Model.Project", b =>

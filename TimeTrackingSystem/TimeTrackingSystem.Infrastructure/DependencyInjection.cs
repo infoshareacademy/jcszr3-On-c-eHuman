@@ -10,6 +10,7 @@ namespace TimeTrackingSystem.Infrastructure
         {
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
             services.AddTransient<ITimeSheetRepository, TimeSheetRepository>();
+            services.AddTransient<ILeavesRepository, LeavesRepository>();
             return services;
         }
     }
