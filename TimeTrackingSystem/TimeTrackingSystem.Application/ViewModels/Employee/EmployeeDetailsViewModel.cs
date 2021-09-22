@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using TimeTrackingSystem.Application.Mapping;
 using TimeTrackingSystem.Domain.Model;
 
@@ -18,7 +19,7 @@ namespace TimeTrackingSystem.Application.ViewModels
         public void Mapping(Profile profile)
         {
             profile.CreateMap<ApplicationUser, EmployeeDetailsViewModel>()
-                .ForMember(s => s.Full_Name, opt => opt.MapFrom(d => d.First_Name + " " + d.Last_Name));   
+                .ForMember(s => s.Full_Name, opt => opt.MapFrom(d => d.First_Name + " " + d.Last_Name)).ReverseMap();
         }
     }
 }

@@ -8,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TimeTrackingSystem.Application;
-using TimeTrackingSystem.Application.ViewModels.Employee;
 using TimeTrackingSystem.Application.ViewModels.TimeSheet;
 using TimeTrackingSystem.Domain.Model;
 using TimeTrackingSystem.Infrastructure;
@@ -43,8 +42,7 @@ namespace TimeTrackingSystem
                 .AddFluentValidation(fv => fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false);
             services.AddRazorPages();
 
-            services.AddTransient<IValidator<NewTimeSheetViewModel>, NewTimeSheetValidation>();
-            services.AddTransient<IValidator<NewEmployeeViewModel>, NewEmployeeValidation>();
+            services.AddTransient<IValidator<TimeSheetDetailsViewModel>, NewTimeSheetValidation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

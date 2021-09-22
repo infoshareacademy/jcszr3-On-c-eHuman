@@ -45,13 +45,13 @@ namespace TimeTrackingSystem.Controllers
         public async Task<IActionResult> AddTimeSheet()
         {
             var user = await _userManager.GetUserAsync(User);
-            var timeSheet = new NewTimeSheetViewModel();
+            var timeSheet = new TimeSheetDetailsViewModel();
             timeSheet.ApplicationUserId = user.Id;
             return View(timeSheet);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddTimeSheet(NewTimeSheetViewModel model)
+        public async Task<IActionResult> AddTimeSheet(TimeSheetDetailsViewModel model)
         {
             var id = _timeSheetService.Add(model);
             return RedirectToAction("Index");
@@ -65,7 +65,7 @@ namespace TimeTrackingSystem.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditTimeSheet(NewTimeSheetViewModel model)
+        public IActionResult EditTimeSheet(TimeSheetDetailsViewModel model)
         {
             _timeSheetService.Update(model);
             return RedirectToAction("ViewTimeSheet", new { id = model.Id });

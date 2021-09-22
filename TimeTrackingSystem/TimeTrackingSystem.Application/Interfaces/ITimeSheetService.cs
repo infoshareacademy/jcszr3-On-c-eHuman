@@ -5,11 +5,11 @@ namespace TimeTrackingSystem.Application.Interfaces
     public interface ITimeSheetService
     {
         ListOfTimeSheetsViewModel GetAll(string Id);
-        int Add(NewTimeSheetViewModel model);
+        int Add(TimeSheetDetailsViewModel model);
         void Delete(int id);
         TimeSheetDetailsViewModel Get(int id);
-        NewTimeSheetViewModel Edit(int id);
-        void Update(NewTimeSheetViewModel model);
+        TimeSheetDetailsViewModel Edit(int id);
+        void Update(TimeSheetDetailsViewModel model);
         
     }
 }

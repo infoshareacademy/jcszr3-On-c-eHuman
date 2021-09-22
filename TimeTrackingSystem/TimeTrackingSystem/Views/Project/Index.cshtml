@@ -1,0 +1,119 @@
+﻿@model TimeTrackingSystem.Application.ViewModels.Project.ListOfProjectsViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="AddProject">Create New</a>
+</p>
+<form asp-aciton="Index" asp-controller="Project" method="post">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Account full name
+                    </th>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Project code
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Location
+                    </th>
+                    <th>
+                        Start date
+                    </th>
+                    <th>
+                        End date
+                    </th>
+                    <th>
+                        Other details
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Projects)
+                {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.ApplicationUser.Full_Name, "View", "Employees", new { ApplicationUserId = item.ApplicationUser.Id })
+                        @*@Html.DisplayFor(modelItem => item.Employee.Employee_FullName)*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Project.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Project.Project_code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Project.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Project.Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Project.Start_date.GetDateTimeFormats()[0])
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Project.End_date.GetDateTimeFormats()[0])
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Project.Other_details)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditProject", new { id = item.Project.Id }) |
+                        @Html.ActionLink("Details", "ViewProject", new { id = item.Project.Id }) |
+                        @Html.ActionLink("Activities", "Index", "Activity", new { Id = item.Project.Id }) |
+                        @Html.ActionLink("Delete", "RemoveProject", new { id = item.Project.Id })
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <table>
+            <tr>
+                @{
+                    var rounded = Math.Ceiling(Model.Count / (double)Model.PageSize);
+                }
+                @for (int i = 1; i <= Math.Ceiling(Model.Count / (double)Model.PageSize); i++)
+                {
+                    <td>
+                        @if (i != Model.CurrentPage)
+                        {
+                            <a href="javascript:PagerClick(@i)">@i</a>
+                        }
+                        else
+                        {
+                            <span>@i</span>
+                        }
+                    </td>
+                }
+            </tr>
+        </table>
+        <input type="hidden" name="pageNo" id="pageNo" />
+        <input type="hidden" name="pageSize" id="pageSize" value="2" />
+    </div>
+</form>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        function PagerClick(index) {
+            document.getElementById("pageNo").value = index;
+            document.forms[0].submit();
+        }
+    </script>
+}

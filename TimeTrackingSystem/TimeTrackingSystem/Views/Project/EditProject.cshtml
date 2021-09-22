@@ -1,0 +1,59 @@
+﻿@model TimeTrackingSystem.Application.ViewModels.Project.ProjectDetailsViewModel
+
+@{
+    ViewData["Title"] = "EditProject";
+}
+
+<h1>EditProject</h1>
+
+<h4>ProjectDetailsViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditProject">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" class="form-control" />
+            <div class="form-group">
+                <label asp-for="Project_code" class="control-label"></label>
+                <input asp-for="Project_code" class="form-control" />
+                <span asp-validation-for="Project_code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Start_date" class="control-label"></label>
+                <input asp-for="Start_date" class="form-control" />
+                <span asp-validation-for="Start_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="End_date" class="control-label"></label>
+                <input asp-for="End_date" class="form-control" />
+                <span asp-validation-for="End_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Other_details" class="control-label"></label>
+                <input asp-for="Other_details" class="form-control" />
+                <span asp-validation-for="Other_details" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
