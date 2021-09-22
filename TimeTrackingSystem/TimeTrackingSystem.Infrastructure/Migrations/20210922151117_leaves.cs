@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TimeTrackingSystem.Infrastructure.Migrations
 {
-    public partial class initial : Migration
+    public partial class leaves : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -42,6 +42,7 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                     AccessFailedCount = table.Column<int>(nullable: false),
                     First_Name = table.Column<string>(nullable: true),
                     Last_Name = table.Column<string>(nullable: true),
+                    Full_Name = table.Column<string>(nullable: true),
                     Status = table.Column<string>(nullable: true),
                     PhotoProfile = table.Column<byte[]>(nullable: true)
                 },
@@ -154,6 +155,29 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Leaves",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Leave_type = table.Column<int>(nullable: false),
+                    Start_date = table.Column<DateTime>(nullable: false),
+                    End_date = table.Column<DateTime>(nullable: false),
+                    Other_details = table.Column<string>(nullable: true),
+                    ApplicationUserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Leaves", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Leaves_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -280,6 +304,11 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Leaves_ApplicationUserId",
+                table: "Leaves",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Projects_ApplicationUserId",
                 table: "Projects",
                 column: "ApplicationUserId");
@@ -311,6 +340,9 @@ namespace TimeTrackingSystem.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Leaves");
 
             migrationBuilder.DropTable(
                 name: "TimeSheets");
