@@ -45,5 +45,11 @@ namespace TimeTrackingSystem.Controllers
             var employeeModel = _employeeService.Get(ApplicationUserId);
             return View(employeeModel);
         }
+
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
