@@ -67,6 +67,15 @@
           "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {}
         }
       },
+      "Microsoft.AspNet.Identity.Core/2.2.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.18": {
         "type": "package",
         "compile": {
@@ -2793,6 +2802,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "Microsoft.AspNet.Identity.Core": "2.2.3",
           "Microsoft.Extensions.Identity.Stores": "3.1.18"
         },
         "compile": {
@@ -2900,6 +2910,19 @@
         "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.xml",
         "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll",
         "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.xml"
+      ]
+    },
+    "Microsoft.AspNet.Identity.Core/2.2.3": {
+      "sha512": "Mv5FpoaxspE8hlWLE4r1IdZtovg/OyFgVRhxQbx47J4sqdLImN1hnM1lnwCj+/wLmqtqFk/RYMoZ5GAcwm/00g==",
+      "type": "package",
+      "path": "microsoft.aspnet.identity.core/2.2.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.AspNet.Identity.Core.dll",
+        "lib/net45/Microsoft.AspNet.Identity.Core.xml",
+        "microsoft.aspnet.identity.core.2.2.3.nupkg.sha512",
+        "microsoft.aspnet.identity.core.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/3.1.18": {
@@ -8989,25 +9012,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DP\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\9dani\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem\\TimeTrackingSystem.csproj",
+      "projectUniqueName": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem\\TimeTrackingSystem.csproj",
       "projectName": "TimeTrackingSystem",
-      "projectPath": "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem\\TimeTrackingSystem.csproj",
-      "packagesPath": "C:\\Users\\DP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem\\obj\\",
+      "projectPath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem\\TimeTrackingSystem.csproj",
+      "packagesPath": "C:\\Users\\9dani\\.nuget\\packages\\",
+      "outputPath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\DP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\9dani\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -9020,14 +9048,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Application\\TimeTrackingSystem.Application.csproj": {
-              "projectPath": "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Application\\TimeTrackingSystem.Application.csproj"
+            "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Application\\TimeTrackingSystem.Application.csproj": {
+              "projectPath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Application\\TimeTrackingSystem.Application.csproj"
             },
-            "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj": {
-              "projectPath": "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj"
+            "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj": {
+              "projectPath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Domain\\TimeTrackingSystem.Domain.csproj"
             },
-            "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\TimeTrackingSystem.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\DP\\Documents\\Project\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\TimeTrackingSystem.Infrastructure.csproj"
+            "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\TimeTrackingSystem.Infrastructure.csproj": {
+              "projectPath": "D:\\.NET\\jcszr3-On-c-eHuman\\TimeTrackingSystem\\TimeTrackingSystem.Infrastructure\\TimeTrackingSystem.Infrastructure.csproj"
             }
           }
         }
@@ -9087,8 +9115,20 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.Identity.Core 2.2.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.Identity.Core",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

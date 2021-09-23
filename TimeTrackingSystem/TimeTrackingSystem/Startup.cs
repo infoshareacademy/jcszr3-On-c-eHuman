@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using TimeTrackingSystem.Application;
 using TimeTrackingSystem.Application.ViewModels.TimeSheet;
 using TimeTrackingSystem.Domain.Model;
+using TimeTrackingSystem.Extensions;
 using TimeTrackingSystem.Infrastructure;
 
 namespace TimeTrackingSystem
@@ -42,6 +43,8 @@ namespace TimeTrackingSystem
                 .AddFluentValidation(fv => fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false);
             services.AddRazorPages();
 
+            
+            services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, AppClaimsPrincipalFactory>();
             services.AddTransient<IValidator<TimeSheetDetailsViewModel>, NewTimeSheetValidation>();
         }
 
