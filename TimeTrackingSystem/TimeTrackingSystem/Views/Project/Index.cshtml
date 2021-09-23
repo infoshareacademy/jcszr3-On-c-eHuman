@@ -10,9 +10,9 @@
     <a asp-action="AddProject">Create New</a>
 </p>
 <form asp-aciton="Index" asp-controller="Project" method="post">
-    <div class="row">
-        <table class="table">
-            <thead>
+    <div class="row card">
+        <table class="table table-striped table-hover table-light table-bordered">
+            <thead class="bg-gradient-light">
                 <tr>
                     <th>
                         Account full name
@@ -44,40 +44,40 @@
             <tbody>
                 @foreach (var item in Model.Projects)
                 {
-                <tr>
-                    <td>
-                        @Html.ActionLink(item.ApplicationUser.Full_Name, "View", "Employees", new { ApplicationUserId = item.ApplicationUser.Id })
-                        @*@Html.DisplayFor(modelItem => item.Employee.Employee_FullName)*@
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Project.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Project.Project_code)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Project.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Project.Location)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Project.Start_date.GetDateTimeFormats()[0])
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Project.End_date.GetDateTimeFormats()[0])
-                    </td>
+                    <tr>
+                        <td>
+                            @Html.ActionLink(item.ApplicationUser.Full_Name, "View", "Employees", new { ApplicationUserId = item.ApplicationUser.Id })
+                            @*@Html.DisplayFor(modelItem => item.Employee.Employee_FullName)*@
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Project.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Project.Project_code)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Project.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Project.Location)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Project.Start_date.GetDateTimeFormats()[0])
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Project.End_date.GetDateTimeFormats()[0])
+                        </td>
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Project.Other_details)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "EditProject", new { id = item.Project.Id }) |
-                        @Html.ActionLink("Details", "ViewProject", new { id = item.Project.Id }) |
-                        @Html.ActionLink("Activities", "Index", "Activity", new { Id = item.Project.Id }) |
-                        @Html.ActionLink("Delete", "RemoveProject", new { id = item.Project.Id })
-                    </td>
-                </tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Project.Other_details)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditProject", new { id = item.Project.Id }) |
+                            @Html.ActionLink("Details", "ViewProject", new { id = item.Project.Id }) |
+                            @Html.ActionLink("Activities", "Index", "Activity", new { Id = item.Project.Id }) |
+                            @Html.ActionLink("Delete", "RemoveProject", new { id = item.Project.Id })
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>

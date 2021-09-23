@@ -9,69 +9,67 @@
     @Html.ActionLink("Create New", "Add", new { projectId = Model.Id})
 </p>
 <form asp-aciton="Index" asp-controller="Activity" method="post">
-    <div class="row">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        Project name
-                    </th>
-                    <th>
-                        Activity Id
-                    </th>
-                    <th>
-                        Project Id
-                    </th>
-                    <th>
-                        Activity code
-                    </th>
-                    <th>
-                        Time from
-                    </th>
-                    <th>
-                        Time to
-                    </th>
-                    <th>
-                        Other details
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Activities)
-                {
-                <tr>
-                    <td>
-                        @Html.ActionLink(item.Project.Name, "ViewProject", "Project", new { ProjectId = item.Project.Id })
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Activity.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Project.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Activity.Code)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Activity.Start_date.GetDateTimeFormats()[0])
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Activity.End_date.GetDateTimeFormats()[0])
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Activity.Other_details)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Activity.Id }) |
-                        @Html.ActionLink("Details", "View", new { id = item.Activity.Id }) |
-                        @Html.ActionLink("Delete", "Remove", new { id = item.Activity.Id })
-                    </td>
-                </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+            <table class="table table-striped table-hover table-light table-bordered">
+                <thead class="bg-gradient-light">
+                    <tr>
+                        <th>
+                            Project name
+                        </th>
+                        <th>
+                            Activity Id
+                        </th>
+                        <th>
+                            Project Id
+                        </th>
+                        <th>
+                            Activity code
+                        </th>
+                        <th>
+                            Time from
+                        </th>
+                        <th>
+                            Time to
+                        </th>
+                        <th>
+                            Other details
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Activities)
+                    {
+                        <tr>
+                            <td>
+                                @Html.ActionLink(item.Project.Name, "ViewProject", "Project", new { ProjectId = item.Project.Id })
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Activity.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Project.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Activity.Code)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Activity.Start_date.GetDateTimeFormats()[0])
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Activity.End_date.GetDateTimeFormats()[0])
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Activity.Other_details)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Activity.Id }) |
+                                @Html.ActionLink("Details", "View", new { id = item.Activity.Id }) |
+                                @Html.ActionLink("Delete", "Remove", new { id = item.Activity.Id })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
     <div class="row">
         <table>
             <tr>

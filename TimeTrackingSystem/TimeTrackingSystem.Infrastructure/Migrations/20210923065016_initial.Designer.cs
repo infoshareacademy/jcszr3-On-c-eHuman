@@ -10,8 +10,8 @@ using TimeTrackingSystem.Infrastructure;
 namespace TimeTrackingSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210922151117_leaves")]
-    partial class leaves
+    [Migration("20210923065016_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

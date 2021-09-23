@@ -1,63 +1,51 @@
 ﻿@model TimeTrackingSystem.Application.ViewModels.TimeSheet.ListOfTimeSheetsViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "TimeSheet";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="AddTimeSheet">Create New</a>
-</p>
 <form asp-aciton="Index" asp-controller="TimeSheet" method="post">
     <div class="row">
-        <table class="table">
-            <thead>
-            <tr>
-                <th>
-                    Account full name
-                </th>
-                <th>
-                    Date
-                </th>
-                <th>
-                    Time from
-                </th>
-                <th>
-                    Time to
-                </th>
-                <th>
-                    Comments
-                </th>
-                <th></th>
-            </tr>
+        <table class="table table-striped table-hover table-light table-bordered">
+            <thead class="bg-gradient-light">
+                <tr>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Time from
+                    </th>
+                    <th>
+                        Time to
+                    </th>
+                    <th>
+                        Comments
+                    </th>
+                    <th></th>
+                </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model.TimeSheets)
                 {
-                <tr>
-                    <td>
-                        @Html.ActionLink(item.ApplicationUser.Full_Name, "View", "Employees", new { ApplicationUserId = item.ApplicationUser.Id })
-                        @*@Html.DisplayFor(modelItem => item.Employee.Employee_FullName)*@
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TimeSheet.Date.GetDateTimeFormats()[0])
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TimeSheet.Time_from.Date.TimeOfDay)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TimeSheet.Time_to.Date.TimeOfDay)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TimeSheet.Comments)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "EditTimeSheet", new { id = item.TimeSheet.Id }) |
-                        @Html.ActionLink("Details", "ViewTimeSheet", new { id = item.TimeSheet.Id }) |
-                        @Html.ActionLink("Delete", "RemoveTimeSheet", new { id = item.TimeSheet.Id })
-                    </td>
-                </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TimeSheet.Date.GetDateTimeFormats()[0])
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TimeSheet.Time_from.Date.TimeOfDay)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TimeSheet.Time_to.Date.TimeOfDay)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TimeSheet.Comments)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditTimeSheet", new { id = item.TimeSheet.Id }) |
+                            @Html.ActionLink("Details", "ViewTimeSheet", new { id = item.TimeSheet.Id }) |
+                            @Html.ActionLink("Delete", "RemoveTimeSheet", new { id = item.TimeSheet.Id })
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
