@@ -83,6 +83,14 @@ namespace TimeTrackingSystem.Controllers
             var timesheetModel = _timeSheetService.Get(id);
             return View(timesheetModel);
         }
+
+        [HttpGet]
+        public IActionResult Callendar(int id)
+        {
+            var timesheetModel = _timeSheetService.Get(id);
+            return View(timesheetModel);
+        }
+
     }
 }
 

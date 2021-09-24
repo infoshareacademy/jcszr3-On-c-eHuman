@@ -1,0 +1,409 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<style>
+    td:first-child, th:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 1;
+    }
+    table {
+        white-space: nowrap;
+    }
+    thead tr th {
+        position: sticky;
+    }
+    /* style="background-color: rgb(168, 168, 168);"
+  style="border: 1px solid black;" */
+
+
+    .bs {
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        color: #fff;
+        text-transform: uppercase;
+        margin: 0 auto;
+    }
+    .present {
+        background-color: rgb(7, 112, 33);
+    }
+
+    .absent {
+        background-color: rgb(236, 10, 2);
+    }
+
+    .remote {
+        background-color: rgb(147, 127, 236);
+    }
+    table.table-bordered > tbody > tr > td{
+        border:1px solid black;
+        min-width: 100px;
+        text-align: center;
+    }
+    th {
+        text-align: center;
+    }
+
+</style>
+    <h2 > Calendar</h2 >
+    
+    <div class="container-fluid">
+    <div class="overflow-auto" style="height: 70%;" >
+    <table class="table table-sm table-striped table-hover table-light table-bordered border-dark" cellspacing="0" width="100%" >
+    <thead class="bg-gradient-light" >
+    <tr >
+        <th class="bg-gradient-light"> &nbsp</th >
+    <th > 1<br > Thursday</th >
+    <th > 2<br > Friday</th >
+    <th > 3<br > Saturday</th >
+    <th > 4<br > Sunday</th >
+    <th > 5<br > Monday</th >
+    <th > 6<br > Tuesday</th >
+    <th > 7<br > Wednesday</th >
+    <th > 8<br > Thursday</th >
+    <th > 9<br > Friday</th >
+    <th > 10<br > Saturday</th >
+    <th > 11<br > Sunday</th >
+    <th > 12<br > Monday</th >
+    <th > 13<br > Tuesday</th >
+    <th > 14<br > Wednesday</th >
+    <th > 15<br > Thursday</th >
+    <th > 16<br > Friday</th >
+    <th > 17<br > Saturday</th >
+    <th > 18<br > Sunday</th >
+    <th style="border: 5px solid rgb(82, 200, 236);" > 19<br > Monday</th >
+    <th > 20<br > Tuesday</th >
+    <th > 21<br > Wednesday</th >
+    <th > 22<br > Thursday</th >
+    <th > 23<br > Friday</th >
+    <th > 24<br > Saturday</th >
+    <th > 25<br > Sunday</th >
+    <th > 26<br > Monday</th >
+    <th > 27<br > Tuesday</th >
+    <th > 28<br > Wednesday</th >
+    <th > 29<br > Thursday</th >
+    <th > 30<br > Friday</th >
+    </tr >
+    </thead >
+    <tbody class="flex-nowrap">
+    <tr >
+    <td class="bg-gradient-dark text-white" style="z-index: 1;"> Tiger Nixon</td >
+    <td > </td >
+    <td > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+        <td >
+            
+                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="bs absent"> A</div>
+                </a>
+                <div class="dropdown-menu bg-gradient-dark text-center">
+                    <span>Time from: 8:00</span><br/>
+                    <span>Time to: 16:00</span><br/>
+                </div>
+            
+        </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td class="presentday" > <div class="bs present" > P</div > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    </tr >
+    <tr >
+        <td class="bg-gradient-dark text-white">
+            <a href="#" class="text-light"data-toggle="modal" data-target="#logoutModal">
+            Garrett Winters
+            </a>
+        </td>
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > </td >
+    <td > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td class="presentday" > <div class="bs present" > P</div > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    </tr >
+    <tr >
+    <td class="bg-gradient-dark text-white"> Ashton Nixon</td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td class="presentday" > <div class="bs absent" > A</div > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    </tr >
+    <tr >
+    <td class="bg-gradient-dark text-white"> Gavin Cortez</td >
+    <td > </td >
+    <td > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td class="presentday" > <div class="bs present" > P</div > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    </tr >
+    <tr >
+    <td class="bg-gradient-dark text-white"> Martena Mccray</td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > </td >
+    <td > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td class="presentday" > <div class="bs present" > P</div > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    </tr >
+    <tr >
+    <td class="bg-gradient-dark text-white"> Unity Butler</td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td class="presentday" > <div class="bs present" > P</div > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    </tr >
+    <tr >
+    <td class="bg-gradient-dark text-white"> Howard Hatfield</td >
+    <td > </td >
+    <td > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td class="presentday" > <div class="bs present" > P</div > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    </tr >
+    <tr >
+    <td class="bg-gradient-dark text-white"> Hope Fuentes</td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > </td >
+    <td > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td class="presentday" > <div class="bs present" > P</div > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    </tr >
+    <tr >
+    <td class="bg-gradient-dark text-white"> Vivian Harrell</td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td > <div class="bs remote" > R</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs present" > P</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td > <div class="bs absent" > A</div > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td class="presentday" > <div class="bs present" > P</div > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td class="freeday" > </td >
+    <td class="freeday" > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    <td > </td >
+    </tr >
+    </tbody >
+    </table >
+    </div >
+    </div >
+
+
