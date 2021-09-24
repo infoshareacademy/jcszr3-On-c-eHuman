@@ -594,3 +594,6 @@ D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem\obj\Debug\netco
 D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem\obj\Debug\netcoreapp3.1\TimeTrackingSystem.pdb
 D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem\obj\Debug\netcoreapp3.1\TimeTrackingSystem.genruntimeconfig.cache
 D:\.NET\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNet.Identity.Core.dll
+C:\Users\DP\Documents\Project\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem\bin\Debug\netcoreapp3.1\Microsoft.AspNet.Identity.Core.dll
+C:\Users\DP\Documents\Project\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_Layout.cshtml.g.cs
+C:\Users\DP\Documents\Project\jcszr3-On-c-eHuman\TimeTrackingSystem\TimeTrackingSystem\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Email.cshtml.g.cs

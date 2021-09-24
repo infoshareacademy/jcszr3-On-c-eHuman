@@ -44,6 +44,7 @@ namespace TimeTrackingSystem.Areas.Identity.Pages.Account.Manage
             public string Last_Name { get; set; }
             [Display(Name = "Photo profile")]
             public byte[] PhotoProfile { get; set; }
+            [Display(Name = "Photo profile")]
             public IFormFile PhotoProfileIFormFile { get; set; }
 
             public string Full_Name { get; set; }
@@ -57,16 +58,16 @@ namespace TimeTrackingSystem.Areas.Identity.Pages.Account.Manage
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
 
 
-            var base64 = Convert.ToBase64String(user.PhotoProfile);
-            string base64String = Convert.ToBase64String(user.PhotoProfile, 0, user.PhotoProfile.Length);
+            //var base64 = Convert.ToBase64String(user.PhotoProfile);
+            //string base64String = Convert.ToBase64String(user.PhotoProfile, 0, user.PhotoProfile.Length);
             Input = new InputModel
             {
                 PhoneNumber = phoneNumber,
                 First_Name = user.First_Name,
                 Last_Name = user.Last_Name,
                 Full_Name = user.First_Name + " " + user.Last_Name,
-                PhotoProfile = user.PhotoProfile,
-                ProfilePhoto = "data:image/png;base64," + base64String
+                //PhotoProfile = user.PhotoProfile,
+                //ProfilePhoto = "data:image/png;base64," + base64String
             };
         }
 
@@ -98,10 +99,12 @@ namespace TimeTrackingSystem.Areas.Identity.Pages.Account.Manage
             user.First_Name = Input.First_Name;
             user.Last_Name = Input.Last_Name;
             user.Full_Name = Input.First_Name + " " + Input.Last_Name;
-            using (var reader = new StreamReader(Input.PhotoProfileIFormFile.OpenReadStream()))
-            {
-                string contentAsString = reader.ReadToEnd();
-                user.PhotoProfile = ConvertToBytes(Input.PhotoProfileIFormFile);
+            if (Input.PhotoProfileIFormFile != null) { 
+                using (var reader = new StreamReader(Input.PhotoProfileIFormFile.OpenReadStream()))
+                {
+                    string contentAsString = reader.ReadToEnd();
+                    user.PhotoProfile = ConvertToBytes(Input.PhotoProfileIFormFile);
+                } 
             }
 
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);

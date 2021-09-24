@@ -29,7 +29,7 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Full_Name)
+                            @Html.ActionLink(item.Full_Name, "View", new { ApplicationUserId = item.Id })
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Email)
