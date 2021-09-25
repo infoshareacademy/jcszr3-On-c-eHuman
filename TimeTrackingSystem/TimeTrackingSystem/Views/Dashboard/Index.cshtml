@@ -1,0 +1,732 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<style>
+    td:first-child, th:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 1;
+    }
+
+    table {
+        white-space: nowrap;
+    }
+
+    thead tr th {
+        position: sticky;
+    }
+    /* style="background-color: rgb(168, 168, 168);"
+    style="border: 1px solid black;" */
+
+
+    .bs {
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        color: #fff;
+        text-transform: uppercase;
+        margin: 0 auto;
+    }
+
+    .present {
+        background-color: rgb(7, 112, 33);
+    }
+
+    .absent {
+        background-color: rgb(236, 10, 2);
+    }
+
+    .remote {
+        background-color: rgb(147, 127, 236);
+    }
+
+    table.table-bordered > tbody > tr > td {
+        border: 1px solid black;
+        min-width: 100px;
+        text-align: center;
+    }
+
+    th {
+        text-align: center;
+    }
+
+    .chart-pie {
+        position: relative;
+        height: 15rem;
+        width: 100%;
+    }
+
+    
+</style>
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
+        </a>
+    </div>
+
+    <!-- Content Row -->
+    
+
+    <!-- Content Row -->
+
+    <div class="row">
+
+        <!-- Area Chart -->
+        <div class="col-xl-4 col-lg-7">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                             aria-labelledby="dropdownMenuLink">
+                            <div class="dropdown-header">Dropdown Header:</div>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="chart-area">
+
+                        <!-- Card Body -->
+
+                        <div class="row">
+
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-6 col-md-6 mb-4">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    Earnings (Monthly)
+                                                </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Earnings (Monthly) Card Example -->
+                            <!-- Earnings (Monthly) Card Example -->
+                            <!-- Pending Requests Card Example -->
+                            <div class="col-xl-6 col-md-6 mb-4">
+                                <div class="card border-left-warning shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    Pending Requests
+                                                </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-6 col-md-6 mb-4">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    Earnings (Monthly)
+                                                </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Earnings (Monthly) Card Example -->
+                            <!-- Earnings (Monthly) Card Example -->
+                            <!-- Pending Requests Card Example -->
+                            <div class="col-xl-6 col-md-6 mb-4">
+                                <div class="card border-left-warning shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    Pending Requests
+                                                </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Card Body -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pie Chart -->
+        <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                             aria-labelledby="dropdownMenuLink">
+                            <div class="dropdown-header">Dropdown Header:</div>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Body -->
+
+
+
+                <div class="card-body">
+                    <h4 class="small font-weight-bold">
+                        Server Migration <span class="float-right">20%</span>
+                    </h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
+                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">
+                        Sales Tracking <span class="float-right">40%</span>
+                    </h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
+                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">
+                        Customer Database <span class="float-right">60%</span>
+                    </h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar" role="progressbar" style="width: 60%"
+                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">
+                        Payout Details <span class="float-right">80%</span>
+                    </h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
+                             aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">
+                        Account Setup <span class="float-right">Complete!</span>
+                    </h4>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
+                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+
+                <!-- Card Body -->
+
+            </div>
+        </div>
+
+        <!-- Pie Chart -->
+        <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Working Time</h6>
+                    <div class="dropdown no-arrow">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                             aria-labelledby="dropdownMenuLink">
+                            <div class="dropdown-header">Dropdown Header:</div>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="chart-pie pt-4 pb-2">
+                        <canvas id="myPieChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-center small">
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-primary"></i> Remote Work
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-success"></i> Work on place
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-info"></i> Delegations
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-info"></i> Absences
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+      
+
+
+    <!-- Content Row -->
+    <div class="row">
+
+        <!-- Content Column -->
+        
+        
+        <div class="col-lg-12 mb-4">
+
+            <!-- Illustrations -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Callendar</h6>
+                </div>
+                <div class="card-body">
+                    
+                    <div class="overflow-auto" style="height: 70%;">
+                        <table class="table table-sm table-striped table-hover table-light table-bordered border-dark" cellspacing="0" width="100%">
+                            <thead class="bg-gradient-light">
+                                <tr>
+                                    <th class="bg-gradient-light"> &nbsp</th>
+                                    <th> 1<br> Thursday</th>
+                                    <th> 2<br> Friday</th>
+                                    <th> 3<br> Saturday</th>
+                                    <th> 4<br> Sunday</th>
+                                    <th> 5<br> Monday</th>
+                                    <th> 6<br> Tuesday</th>
+                                    <th> 7<br> Wednesday</th>
+                                    <th> 8<br> Thursday</th>
+                                    <th> 9<br> Friday</th>
+                                    <th> 10<br> Saturday</th>
+                                    <th> 11<br> Sunday</th>
+                                    <th> 12<br> Monday</th>
+                                    <th> 13<br> Tuesday</th>
+                                    <th> 14<br> Wednesday</th>
+                                    <th> 15<br> Thursday</th>
+                                    <th> 16<br> Friday</th>
+                                    <th> 17<br> Saturday</th>
+                                    <th> 18<br> Sunday</th>
+                                    <th style="border: 5px solid rgb(82, 200, 236);"> 19<br> Monday</th>
+                                    <th> 20<br> Tuesday</th>
+                                    <th> 21<br> Wednesday</th>
+                                    <th> 22<br> Thursday</th>
+                                    <th> 23<br> Friday</th>
+                                    <th> 24<br> Saturday</th>
+                                    <th> 25<br> Sunday</th>
+                                    <th> 26<br> Monday</th>
+                                    <th> 27<br> Tuesday</th>
+                                    <th> 28<br> Wednesday</th>
+                                    <th> 29<br> Thursday</th>
+                                    <th> 30<br> Friday</th>
+                                </tr>
+                            </thead>
+                            <tbody class="flex-nowrap">
+                                <tr>
+                                    <td class="bg-gradient-dark text-white" style="z-index: 1;"> Tiger Nixon</td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td>
+
+                                        <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <div class="bs absent"> A</div>
+                                        </a>
+                                        <div class="dropdown-menu bg-gradient-dark text-center">
+                                            <span>Time from: 8:00</span><br />
+                                            <span>Time to: 16:00</span><br />
+                                        </div>
+
+                                    </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="presentday"> <div class="bs present"> P</div> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-gradient-dark text-white">
+                                        <a href="#" class="text-light" data-toggle="modal" data-target="#profileModal">
+                                            Garrett Winters
+                                        </a>
+                                    </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="presentday"> <div class="bs present"> P</div> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-gradient-dark text-white"> Ashton Nixon</td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="presentday"> <div class="bs absent"> A</div> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-gradient-dark text-white"> Gavin Cortez</td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="presentday"> <div class="bs present"> P</div> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-gradient-dark text-white"> Martena Mccray</td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="presentday"> <div class="bs present"> P</div> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-gradient-dark text-white"> Unity Butler</td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="presentday"> <div class="bs present"> P</div> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-gradient-dark text-white"> Howard Hatfield</td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="presentday"> <div class="bs present"> P</div> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-gradient-dark text-white"> Hope Fuentes</td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="presentday"> <div class="bs present"> P</div> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-gradient-dark text-white"> Vivian Harrell</td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td> <div class="bs remote"> R</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs present"> P</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td> <div class="bs absent"> A</div> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="presentday"> <div class="bs present"> P</div> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td class="freeday"> </td>
+                                    <td class="freeday"> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+@section scripts {
+
+    <script type="text/javascript">
+
+        var ctx = document.getElementById("myPieChart");
+        var myPieChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ["Remote work", "OnPlaceWork", "Delegations", "Absences"],
+                datasets: [{
+                    data: [55, 10, 10, 25],
+                    backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#36c9cc'],
+                    hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', '#36c9cc'],
+                    hoverBorderColor: "rgba(234, 236, 244, 1)",
+                }],
+            },
+            options: {
+                maintainAspectRatio: false,
+                tooltips: {
+                    backgroundColor: "rgb(255,255,255)",
+                    bodyFontColor: "#858796",
+                    borderColor: '#dddfeb',
+                    borderWidth: 1,
+                    xPadding: 10,
+                    yPadding: 10,
+                    displayColors: false,
+                    caretPadding: 10,
+                },
+                legend: {
+                    display: false
+                },
+                cutoutPercentage: 70,
+            },
+        });
+
+    </script>
+
+}
+
+<!-- Employee modal -->

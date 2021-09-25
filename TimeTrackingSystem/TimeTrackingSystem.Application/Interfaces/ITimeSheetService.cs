@@ -1,4 +1,5 @@
-﻿using TimeTrackingSystem.Application.ViewModels.TimeSheet;
+﻿using System.Collections.Generic;
+using TimeTrackingSystem.Application.ViewModels.TimeSheet;
 
 namespace TimeTrackingSystem.Application.Interfaces
 {
@@ -6,6 +7,7 @@ namespace TimeTrackingSystem.Application.Interfaces
     {
         ListOfTimeSheetsViewModel GetAll(string Id);
         int Add(TimeSheetDetailsViewModel model);
+        void AddList(List<TimeSheetDetailsViewModel> model);
         void Delete(int id);
         TimeSheetDetailsViewModel Get(int id);
         TimeSheetDetailsViewModel Edit(int id);

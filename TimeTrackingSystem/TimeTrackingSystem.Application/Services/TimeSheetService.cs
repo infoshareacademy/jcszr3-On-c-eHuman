@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using System.Linq;
 using TimeTrackingSystem.Application.Interfaces;
@@ -23,6 +24,14 @@ namespace TimeTrackingSystem.Application.Services
             var timeSh = _mapper.Map<TimeSheet>(timesheet);
             var id = _timeSheetRepo.Add(timeSh);
             return id;
+        }
+        public void AddList(List<TimeSheetDetailsViewModel> timesheet)
+        {
+            foreach (var tm in timesheet)
+            {
+                var timeSh = _mapper.Map<TimeSheet>(tm);
+                var id = _timeSheetRepo.Add(timeSh);
+            }
         }
         public TimeSheetDetailsViewModel Edit(int id)
         {

@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using TimeTrackingSystem.Domain.Model
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -19,153 +23,156 @@
 <body id="page-top" class="sidebar-toggled">
     <!-- Page Wrapper -->
     <div id="wrapper">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <!-- Sidebar -->
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTimeSheet"
-                   aria-expanded="true" aria-controls="collapseTimeSheet">
-                    <i class="fas fa-business-time"></i>
-                    <span>TimeSheets</span>
-                </a>
-                <div id="collapseTimeSheet" class="collapse" aria-labelledby="headingTimeSheet" data-parent="#accordionSidebar" style="z-index: 10;">
-                    <div class="bg-gradient-light py-0 collapse-inner rounded">
-                        <h6 class="collapse-header bg-gradient-light rounded">Timesheet menu:</h6>
-                        <a class="collapse-item" asp-area="" asp-controller="TimeSheet" asp-action="AddTimeSheet">Create new timesheet</a>
-                        <a class="collapse-item" asp-area="" asp-controller="TimeSheet" asp-action="Callendar">View callendar</a>
-                        <a class="collapse-item" asp-area="" asp-controller="TimeSheet" asp-action="Index">View timesheets</a>
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                        <i class="fas fa-laugh-wink"></i>
                     </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEmployee"
-                   aria-expanded="true" aria-controls="collapseEmployee">
-                    <i class="fas fa-users"></i>
-                    <span>Employees</span>
+                    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
                 </a>
-                <div id="collapseEmployee" class="collapse" aria-labelledby="headingEmployee" data-parent="#accordionSidebar" style="z-index: 10;">
-                    <div class="bg-gradient-light py-0 collapse-inner rounded">
-                        <h6 class="collapse-header bg-gradient-light rounded">Employees menu:</h6>
-                        <a class="collapse-item" asp-area="Identity" asp-page="/Account/Register">Register new employee</a>
-                        <a class="collapse-item" asp-area="" asp-controller="Employees" asp-action="Index">View employees</a>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item active">
+                    <a asp-controller="Dashboard" asp-action="Index" class="nav-link">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Interface
+                </div>
+
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTimeSheet"
+                       aria-expanded="true" aria-controls="collapseTimeSheet">
+                        <i class="fas fa-business-time"></i>
+                        <span>TimeSheets</span>
+                    </a>
+                    <div id="collapseTimeSheet" class="collapse" aria-labelledby="headingTimeSheet" data-parent="#accordionSidebar" style="z-index: 10;">
+                        <div class="bg-gradient-light py-0 collapse-inner rounded">
+                            <h6 class="collapse-header bg-gradient-light rounded">Timesheet menu:</h6>
+                            <a class="collapse-item" asp-area="" asp-controller="TimeSheet" asp-action="AddTimeSheet">Create new timesheet</a>
+                            <a class="collapse-item" asp-area="" asp-controller="TimeSheet" asp-action="Callendar">View callendar</a>
+                            <a class="collapse-item" asp-area="" asp-controller="TimeSheet" asp-action="Index">View timesheets</a>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProjects"
-                   aria-expanded="true" aria-controls="collapseProjects">
-                    <i class="fas fa-tasks"></i>
-                    <span>Projects</span>
-                </a>
-                <div id="collapseProjects" class="collapse" aria-labelledby="headingProjects" data-parent="#accordionSidebar" style="z-index: 10;">
-                    <div class="bg-gradient-light py-0 collapse-inner rounded">
-                        <h6 class="collapse-header bg-gradient-light rounded">Projects menu:</h6>
-                        <a class="collapse-item" asp-area="" asp-controller="Project" asp-action="AddProject">Create new project</a>
-                        <a class="collapse-item" asp-area="" asp-controller="Project" asp-action="Index">View all projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEmployee"
+                       aria-expanded="true" aria-controls="collapseEmployee">
+                        <i class="fas fa-users"></i>
+                        <span>Employees</span>
+                    </a>
+                    <div id="collapseEmployee" class="collapse" aria-labelledby="headingEmployee" data-parent="#accordionSidebar" style="z-index: 10;">
+                        <div class="bg-gradient-light py-0 collapse-inner rounded">
+                            <h6 class="collapse-header bg-gradient-light rounded">Employees menu:</h6>
+                            <a class="collapse-item" asp-area="Identity" asp-page="/Account/Register">Register new employee</a>
+                            <a class="collapse-item" asp-area="" asp-controller="Employees" asp-action="Index">View employees</a>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLeaves"
-                   aria-expanded="true" aria-controls="collapseLeaves">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Leaves</span>
-                </a>
-                <div id="collapseLeaves" class="collapse" aria-labelledby="headingLeaves" data-parent="#accordionSidebar" style="z-index: 10;">
-                    <div class="bg-gradient-light py-0 collapse-inner rounded">
-                        <h6 class="collapse-header bg-gradient-light rounded">Leaves menu:</h6>
-                        <a class="collapse-item" asp-area="" asp-controller="Leaves" asp-action="Create">Create new absence</a>
-                        <a class="collapse-item" asp-area="" asp-controller="Leaves" asp-action="Index">History of absences</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProjects"
+                       aria-expanded="true" aria-controls="collapseProjects">
+                        <i class="fas fa-tasks"></i>
+                        <span>Projects</span>
+                    </a>
+                    <div id="collapseProjects" class="collapse" aria-labelledby="headingProjects" data-parent="#accordionSidebar" style="z-index: 10;">
+                        <div class="bg-gradient-light py-0 collapse-inner rounded">
+                            <h6 class="collapse-header bg-gradient-light rounded">Projects menu:</h6>
+                            <a class="collapse-item" asp-area="" asp-controller="Project" asp-action="AddProject">Create new project</a>
+                            <a class="collapse-item" asp-area="" asp-controller="Project" asp-action="Index">View all projects</a>
+                        </div>
                     </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                   aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLeaves"
+                       aria-expanded="true" aria-controls="collapseLeaves">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Leaves</span>
+                    </a>
+                    <div id="collapseLeaves" class="collapse" aria-labelledby="headingLeaves" data-parent="#accordionSidebar" style="z-index: 10;">
+                        <div class="bg-gradient-light py-0 collapse-inner rounded">
+                            <h6 class="collapse-header bg-gradient-light rounded">Leaves menu:</h6>
+                            <a class="collapse-item" asp-area="" asp-controller="Leaves" asp-action="Create">Create new absence</a>
+                            <a class="collapse-item" asp-area="" asp-controller="Leaves" asp-action="Index">History of absences</a>
+                        </div>
                     </div>
+                </li>
+
+                <!-- Nav Item - Utilities Collapse Menu -->
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Addons
                 </div>
-            </li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span>
-                </a>
-            </li>
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                       aria-expanded="true" aria-controls="collapsePages">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Pages</span>
+                    </a>
+                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Login Screens:</h6>
+                            <a class="collapse-item" href="login.html">Login</a>
+                            <a class="collapse-item" href="register.html">Register</a>
+                            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                            <div class="collapse-divider"></div>
+                            <h6 class="collapse-header">Other Pages:</h6>
+                            <a class="collapse-item" href="404.html">404 Page</a>
+                            <a class="collapse-item" href="blank.html">Blank Page</a>
+                        </div>
+                    </div>
+                </li>
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span>
-                </a>
-            </li>
+                <!-- Nav Item - Charts -->
+                <li class="nav-item">
+                    <a class="nav-link" href="charts.html">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Charts</span>
+                    </a>
+                </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+                <!-- Nav Item - Tables -->
+                <li class="nav-item">
+                    <a class="nav-link" href="tables.html">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Tables</span>
+                    </a>
+                </li>
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block">
+
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
 
 
-        </ul>
-        <!-- End of Sidebar -->
+            </ul>
+            <!-- End of Sidebar -->
+        }
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -192,10 +199,12 @@
                             </div>
                         </div>
                     </form>
-
+                    
+                
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-
+                        @if (SignInManager.IsSignedIn(User))
+                        {
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -346,12 +355,12 @@
                         </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
-
+                        }
                         <!-- Nav Item - User Information -->
-                        <partial name="_LoginPartial" />
+                        <partial name="_LoginPartial"/>
 
                     </ul>
-
+               
                 </nav>
                 <!-- End of Topbar -->
                 <!-- Begin Page Content -->
@@ -404,23 +413,14 @@
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/Chart.min.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-
-
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="~/js/Site.js"></script>
-    <script src="https://use.fontawesome.com/661fc32769.js"></script>
-    @RenderSection("Scripts", required: false)
 </body>
 
 </html>

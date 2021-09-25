@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using TimeTrackingSystem.Application.Interfaces;
 using TimeTrackingSystem.Application.ViewModels.TimeSheet;
@@ -54,6 +56,27 @@ namespace TimeTrackingSystem.Controllers
         public async Task<IActionResult> AddTimeSheet(TimeSheetDetailsViewModel model)
         {
             var id = _timeSheetService.Add(model);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> YourTimeSheet()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            var model = new TimeSheetDetailsViewModel()
+            {
+                ApplicationUserId = user.Id,
+                
+            };
+            var timeSheet = new List<TimeSheetDetailsViewModel>(31);
+            timeSheet.AddRange(Enumerable.Repeat(model, 31));
+            return View(timeSheet);
+        }
+
+        [HttpPost]
+        public IActionResult YourTimeSheet(List<TimeSheetDetailsViewModel> model)
+        {
+            _timeSheetService.AddList(model);
             return RedirectToAction("Index");
         }
 

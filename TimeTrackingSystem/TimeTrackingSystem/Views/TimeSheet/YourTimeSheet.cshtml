@@ -1,0 +1,70 @@
+﻿@model List<TimeTrackingSystem.Application.ViewModels.TimeSheet.TimeSheetDetailsViewModel>
+@{
+    DateTime date = DateTime.Now;
+    DateTime firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+    int lastDayOfMonth = (new DateTime(date.Year, date.Month, 1).AddMonths(1).AddDays(-1)).Day;
+}
+<div class="text-center">
+    <h1 class="display-4">Schedule</h1>
+
+    <form asp-action="YourTimeSheet">
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>Activity Id</th>
+                    <th>Date</th>
+                    <th>Time from</th>
+                    <th>Time to</th>
+                    <th>Comments</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @for (int i = 1; i < lastDayOfMonth + 1; i++)
+                {
+                    <tr>
+                        <input type="hidden" asp-for="@Model[i].Id" class="form-control" />
+                        <input type="hidden" asp-for="@Model[i].ApplicationUserId" class="form-control" />
+                        <td>
+                            @Html.EditorFor(m => m[i].ActivityId)
+                            @*<input asp-for="@Model[i].ActivityId" class="form-control" />*@
+                            <span asp-validation-for="@Model[i].ActivityId" class="text-danger"></span>
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m[i].Date)
+                            @*<input asp-for="@Model[i].Date" class="form-control"/>*@
+                            <span asp-validation-for="@Model[i].Date" class="text-danger"></span>
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m[i].Time_from)
+                            @*<input asp-for="@Model[i].Time_from" class="form-control"/>*@
+                            <span asp-validation-for="@Model[i].Time_from" class="text-danger"></span>
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m[i].Time_to)
+                            @*<input asp-for="@Model[i].Time_to" class="form-control" />*@
+                            <span asp-validation-for="@Model[i].Time_to" class="text-danger"></span>
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m[i].Comments)
+                            @*<input asp-for="@Model[i].Comments" class="form-control" />*@
+                            <span asp-validation-for="@Model[i].Comments" class="text-danger"></span>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    @Html.HiddenFor(m => m[i].ActivityId)
+                    @Html.HiddenFor(m => m[i].Date)
+                    @Html.HiddenFor(m => m[i].Time_from)
+                    @Html.HiddenFor(m => m[i].Time_to)
+                    @Html.HiddenFor(m => m[i].Comments)
+                }
+            </tbody>
+        </table>
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </form>
+
+
+</div>
