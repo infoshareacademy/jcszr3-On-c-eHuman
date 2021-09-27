@@ -52,9 +52,6 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
                 where v.Date.Month == DateTime.Now.Month
                 orderby v.Date
                 select new TimeSheetAccount { ApplicationUser = rs, TimeSheet = v };
-
-
-
              return timeSheet;
         }
 
