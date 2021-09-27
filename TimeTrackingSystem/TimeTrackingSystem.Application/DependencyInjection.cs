@@ -2,6 +2,8 @@
 using System.Reflection;
 using TimeTrackingSystem.Application.Interfaces;
 using TimeTrackingSystem.Application.Services;
+using TimeTrackingSystem.Application.ViewModels.TimeSheet;
+using TimeTrackingSystem.Domain.Model;
 
 namespace TimeTrackingSystem.Application
 {

@@ -7,13 +7,11 @@ using System.Text;
 
 namespace TimeTrackingSystem.Domain.Interfaces
 {
-    public interface IGenericRepository<T> where T : class
+    public interface IGenericRepository<T>
     {
-        T GetI(int id);
-        T GetS(string id);
+        T Get(int id);
         int Add(T entity);
         void Delete(int entityId);
-        void Edit(T entity);
         void Update(T entity);
     }
 }

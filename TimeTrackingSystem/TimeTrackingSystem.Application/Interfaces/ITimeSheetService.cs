@@ -1,17 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using TimeTrackingSystem.Application.ViewModels.TimeSheet;
 
 namespace TimeTrackingSystem.Application.Interfaces
 {
-    public interface ITimeSheetService
+    public interface ITimeSheetService : IGenericService<TimeSheetDetailsViewModel>
     {
         ListOfTimeSheetsViewModel GetAll(string Id);
-        int Add(TimeSheetDetailsViewModel model);
-        void AddList(List<TimeSheetDetailsViewModel> model);
-        void Delete(int id);
-        TimeSheetDetailsViewModel Get(int id);
-        TimeSheetDetailsViewModel Edit(int id);
-        void Update(TimeSheetDetailsViewModel model);
-        
+        ILookup<string, TimeSheetAccountViewModel> GetAllForCallendar();
+
     }
 }

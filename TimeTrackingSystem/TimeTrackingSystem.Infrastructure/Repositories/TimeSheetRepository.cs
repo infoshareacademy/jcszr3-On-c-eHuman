@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.V4.Pages.Account.Manage.Internal;
 using Microsoft.Extensions.Logging;
 using System.Linq;
+using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using TimeTrackingSystem.Domain.Interfaces;
 using TimeTrackingSystem.Domain.Model;
 
@@ -41,20 +44,25 @@ namespace TimeTrackingSystem.Infrastructure.Repositories
             return timesheet;
         }
 
-        public IQueryable<TimeSheet> GetByAccountId(string accountId)
+        public IQueryable<TimeSheetAccount> GetAll()
         {
-            var timesheets = _context.TimeSheets.Where(i => i.ApplicationUserId == accountId);
-            return timesheets;
-        }
-
-        public IQueryable<TimeSheetAccount> GetAll(string ApplicationUserId)
-        {
-            var timesheetAccount = from v in _context.TimeSheets
+            var timeSheet = from v in _context.TimeSheets
                 join si in _context.ApplicationUsers on v.ApplicationUserId equals si.Id into loj
                 from rs in loj.DefaultIfEmpty()
-                where rs.Id == ApplicationUserId
+                where v.Date.Month == DateTime.Now.Month
+                orderby v.Date
                 select new TimeSheetAccount { ApplicationUser = rs, TimeSheet = v };
-            return timesheetAccount;
+
+
+
+             return timeSheet;
+        }
+
+        public ILookup<DateTime, TimeSheet> GetAll(string ApplicationUserId)
+        {
+            var timeSheet = _context.TimeSheets.Include(x => x.ApplicationUser)
+                .ToLookup(p => p.Date);
+            return timeSheet;
         }
 
         public void Update(TimeSheet timesheet)

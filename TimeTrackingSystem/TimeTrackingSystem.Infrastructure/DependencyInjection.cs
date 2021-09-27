@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using TimeTrackingSystem.Domain.Interfaces;
+using TimeTrackingSystem.Domain.Model;
 using TimeTrackingSystem.Infrastructure.Repositories;
 
 namespace TimeTrackingSystem.Infrastructure

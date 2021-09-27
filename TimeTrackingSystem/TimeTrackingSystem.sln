@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{78577A92-F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTrackingSystem", "TimeTrackingSystem\TimeTrackingSystem.csproj", "{9335E628-3B45-4BEF-B86D-3C403D943350}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statistics.API", "Statistics.API\Statistics.API.csproj", "{E0B3C7D2-4AAF-4808-B631-431ECAD0608D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{9335E628-3B45-4BEF-B86D-3C403D943350}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9335E628-3B45-4BEF-B86D-3C403D943350}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9335E628-3B45-4BEF-B86D-3C403D943350}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0B3C7D2-4AAF-4808-B631-431ECAD0608D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0B3C7D2-4AAF-4808-B631-431ECAD0608D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0B3C7D2-4AAF-4808-B631-431ECAD0608D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0B3C7D2-4AAF-4808-B631-431ECAD0608D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

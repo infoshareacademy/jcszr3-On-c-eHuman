@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using TimeTrackingSystem.Application.Interfaces;
 using TimeTrackingSystem.Application.ViewModels.TimeSheet;
@@ -110,7 +111,8 @@ namespace TimeTrackingSystem.Controllers
         [HttpGet]
         public IActionResult Callendar(int id)
         {
-            var timesheetModel = _timeSheetService.Get(id);
+            var timesheetModel = _timeSheetService.GetAllForCallendar();
+            var day= (new DateTime(2021, 9, 5)).DayOfWeek.ToString();
             return View(timesheetModel);
         }
 

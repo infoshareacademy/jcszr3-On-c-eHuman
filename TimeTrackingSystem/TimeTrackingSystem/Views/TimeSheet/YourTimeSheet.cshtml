@@ -22,7 +22,7 @@
             </thead>
             <tbody>
 
-                @for (int i = 1; i < lastDayOfMonth + 1; i++)
+                @for (int i = 0; i < lastDayOfMonth; i++)
                 {
                     <tr>
                         <input type="hidden" asp-for="@Model[i].Id" class="form-control" />
@@ -55,11 +55,6 @@
                         <td>
                         </td>
                     </tr>
-                    @Html.HiddenFor(m => m[i].ActivityId)
-                    @Html.HiddenFor(m => m[i].Date)
-                    @Html.HiddenFor(m => m[i].Time_from)
-                    @Html.HiddenFor(m => m[i].Time_to)
-                    @Html.HiddenFor(m => m[i].Comments)
                 }
             </tbody>
         </table>

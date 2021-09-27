@@ -18,12 +18,6 @@ namespace TimeTrackingSystem.Application.ViewModels.TimeSheet
         public string Comments { get; set; }
         public DateTime Date_submitted { get; set; }
 
-        [DisplayName("Total time")]
-        [DataType(DataType.Date)]
-        public DateTime TotalTime { get; set; }
-        public DateTime DayOfTheWeek { get; set; }
-        public int WorkingHours { get; set; } 
-
 
         public void Mapping(Profile profile)
         {

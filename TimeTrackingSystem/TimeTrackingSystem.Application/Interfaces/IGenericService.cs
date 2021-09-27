@@ -6,17 +6,14 @@ using TimeTrackingSystem.Application.ViewModels.TimeSheet;
 
 namespace TimeTrackingSystem.Application.Interfaces
 {
-    public interface IGenericService<T> where T : class
+    public interface IGenericService<T>
     {
-        int AddI(T entity);
-        string AddS(T entity);
-        T EditI(int id);
-        T EditS(string id);
-        T GetI(int entityId);
-        T GetS(string entityId);
-        List<T> GetAll();
+        int Add(T model);
+        void AddList(List<T> model);
         void Delete(int id);
-        void Update(T entity);
-
+        T Get(int id);
+        T Edit(int id);
+        void Update(T model);
+        
     }
 }

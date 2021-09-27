@@ -1,4 +1,5 @@
-﻿@model TimeTrackingSystem.Application.ViewModels.EmployeeDetailsViewModel
+﻿@using TimeTrackingSystem.Domain.Model
+@model ILookup<string, TimeTrackingSystem.Application.ViewModels.TimeSheet.TimeSheetAccountViewModel>
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -64,350 +65,27 @@
             <thead class="bg-gradient-light">
                 <tr>
                     <th class="bg-gradient-light"> &nbsp</th>
-                    <th> 1<br> Thursday</th>
-                    <th> 2<br> Friday</th>
-                    <th> 3<br> Saturday</th>
-                    <th> 4<br> Sunday</th>
-                    <th> 5<br> Monday</th>
-                    <th> 6<br> Tuesday</th>
-                    <th> 7<br> Wednesday</th>
-                    <th> 8<br> Thursday</th>
-                    <th> 9<br> Friday</th>
-                    <th> 10<br> Saturday</th>
-                    <th> 11<br> Sunday</th>
-                    <th> 12<br> Monday</th>
-                    <th> 13<br> Tuesday</th>
-                    <th> 14<br> Wednesday</th>
-                    <th> 15<br> Thursday</th>
-                    <th> 16<br> Friday</th>
-                    <th> 17<br> Saturday</th>
-                    <th> 18<br> Sunday</th>
-                    <th style="border: 5px solid rgb(82, 200, 236);"> 19<br> Monday</th>
-                    <th> 20<br> Tuesday</th>
-                    <th> 21<br> Wednesday</th>
-                    <th> 22<br> Thursday</th>
-                    <th> 23<br> Friday</th>
-                    <th> 24<br> Saturday</th>
-                    <th> 25<br> Sunday</th>
-                    <th> 26<br> Monday</th>
-                    <th> 27<br> Tuesday</th>
-                    <th> 28<br> Wednesday</th>
-                    <th> 29<br> Thursday</th>
-                    <th> 30<br> Friday</th>
+                    @{
+                        DateTime date = DateTime.Now;
+                        int lastDayOfMonth = (new DateTime(date.Year, date.Month, 1).AddMonths(1).AddDays(-1)).Day;
+                    }
+                    @for (int i = 1; i <= lastDayOfMonth; i++)
+                    {
+                        <th>@i<br> @((new DateTime(2021, 9, @i)).DayOfWeek.ToString())</th>
+                    }
                 </tr>
             </thead>
             <tbody class="flex-nowrap">
-                <tr>
-                    <td class="bg-gradient-dark text-white" style="z-index: 1;"> Tiger Nixon</td>
-                    <td> </td>
-                    <td> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td>
-
-                        <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="bs absent"> A</div>
-                        </a>
-                        <div class="dropdown-menu bg-gradient-dark text-center">
-                            <span>Time from: 8:00</span><br />
-                            <span>Time to: 16:00</span><br />
-                        </div>
-
-                    </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td class="presentday"> <div class="bs present"> P</div> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td class="bg-gradient-dark text-white">
-                        <a href="#" class="text-light" data-toggle="modal" data-target="#profileModal">
-                            Garrett Winters
-                        </a>
-                    </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td class="presentday"> <div class="bs present"> P</div> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td class="bg-gradient-dark text-white"> Ashton Nixon</td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td class="presentday"> <div class="bs absent"> A</div> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td class="bg-gradient-dark text-white"> Gavin Cortez</td>
-                    <td> </td>
-                    <td> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td class="presentday"> <div class="bs present"> P</div> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td class="bg-gradient-dark text-white"> Martena Mccray</td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td class="presentday"> <div class="bs present"> P</div> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td class="bg-gradient-dark text-white"> Unity Butler</td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td class="presentday"> <div class="bs present"> P</div> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td class="bg-gradient-dark text-white"> Howard Hatfield</td>
-                    <td> </td>
-                    <td> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td class="presentday"> <div class="bs present"> P</div> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td class="bg-gradient-dark text-white"> Hope Fuentes</td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td class="presentday"> <div class="bs present"> P</div> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td class="bg-gradient-dark text-white"> Vivian Harrell</td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td> <div class="bs remote"> R</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs present"> P</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td> <div class="bs absent"> A</div> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td class="presentday"> <div class="bs present"> P</div> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td class="freeday"> </td>
-                    <td class="freeday"> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                </tr>
+            @foreach (IGrouping<string, TimeTrackingSystem.Application.ViewModels.TimeSheet.TimeSheetAccountViewModel> tm in Model)
+                    {
+                        <tr>
+                        <td class="bg-gradient-dark text-white" style="z-index: 1;">@tm.Key</td>
+                           @foreach (TimeTrackingSystem.Application.ViewModels.TimeSheet.TimeSheetAccountViewModel p in tm)
+                           {
+                               <td>@p.TimeSheet.ActivityId</td>
+                            }
+                            </tr>
+                    }
             </tbody>
         </table>
     </div>
@@ -415,7 +93,7 @@
 
 
 <!-- Logout Modal-->
-<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<!--<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -432,7 +110,7 @@
                             <div class="d-flex flex-column align-items-center text-center">
                                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle" width="150">
                                 <div class="mt-3">
-                                    <h4>@Html.DisplayFor(model => model.Full_Name)</h4>
+                                    <h4></h4>
                                     <p class="text-secondary mb-1">Full Stack Developer</p>
                                     <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
                                 </div>
@@ -445,19 +123,19 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">@Html.DisplayNameFor(model => model.Full_Name)</h6>
+                                    <h6 class="mb-0"></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    @Html.DisplayFor(model => model.Full_Name)
+                                    
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">@Html.DisplayNameFor(model => model.Email)</h6>
+                                    <h6 class="mb-0"></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    @Html.DisplayFor(model => model.Email)
+                                    
                                 </div>
                             </div>
                             <hr>
@@ -501,4 +179,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
