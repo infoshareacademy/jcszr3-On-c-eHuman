@@ -86,6 +86,8 @@ namespace TimeTrackingSystem.Areas.Identity.Pages.Account
                 //}
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+                
+                //Who the f*ck is editing my code without my agrement? Can anybody explain this to me?
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
