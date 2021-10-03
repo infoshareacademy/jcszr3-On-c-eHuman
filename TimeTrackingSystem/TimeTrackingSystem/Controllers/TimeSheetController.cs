@@ -64,20 +64,54 @@ namespace TimeTrackingSystem.Controllers
         public async Task<IActionResult> YourTimeSheet()
         {
             var user = await _userManager.GetUserAsync(User);
-            var model = new TimeSheetDetailsViewModel()
+            var timeSheetAccount = _timeSheetService.GetAll(user.Id).TimeSheets.Where(x=>x.TimeSheet.Date.Month == DateTime.Now.Month).ToList();
+            if (timeSheetAccount != null)
             {
-                ApplicationUserId = user.Id,
+                var timeSheetList = new List<TimeSheetDetailsViewModel>();
+                foreach (var item in timeSheetAccount)
+                {
+                    timeSheetList.Add(item.TimeSheet);
+                }
                 
-            };
-            var timeSheet = new List<TimeSheetDetailsViewModel>(31);
-            timeSheet.AddRange(Enumerable.Repeat(model, 31));
-            return View(timeSheet);
+                return View(timeSheetList);
+            }
+            else
+            {
+                DateTime date = DateTime.Now;
+                int lastDayOfMonth = (new DateTime(date.Year, date.Month, 1).AddMonths(1).AddDays(-1)).Day;
+
+                var timeSheetDetails = new List<TimeSheetDetailsViewModel>();
+                for (int i = 1; i <= lastDayOfMonth; i++)
+                {
+                    var model = new TimeSheetDetailsViewModel()
+                    {
+                        ApplicationUserId = user.Id,
+                        Date = new DateTime(date.Year, date.Month, i)
+                    };
+                    timeSheetDetails.Add(model);
+                }
+                
+                return View(timeSheetDetails);
+            }
+            
         }
 
         [HttpPost]
-        public IActionResult YourTimeSheet(List<TimeSheetDetailsViewModel> model)
+        public async Task<IActionResult> YourTimeSheet(List<TimeSheetDetailsViewModel> model)
         {
-            _timeSheetService.AddList(model);
+            var user = await _userManager.GetUserAsync(User);
+            var timeSheetAccount = _timeSheetService.GetAll(user.Id).TimeSheets.Where(x => x.TimeSheet.Date.Month == DateTime.Now.Month).ToList();
+            if (timeSheetAccount != null)
+            {
+                foreach (var item in model)
+                {
+                    _timeSheetService.Update(item);
+                }
+            }
+            else
+            {
+                _timeSheetService.AddList(model);
+            }
             return RedirectToAction("Index");
         }
 
@@ -115,7 +149,6 @@ namespace TimeTrackingSystem.Controllers
             var day= (new DateTime(2021, 9, 5)).DayOfWeek.ToString();
             return View(timesheetModel);
         }
-
     }
 }
 
